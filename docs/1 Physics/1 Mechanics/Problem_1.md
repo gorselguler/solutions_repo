@@ -97,3 +97,26 @@ plt.axvline(45, color='red', linestyle='--', label='Max Range at 45°')
 plt.legend()
 plt.tight_layout()
 plt.show()
+
+## 5. Limitations and Suggestions for Improvements:
+
+**The current model assumes:**
+
+- No air resistance, which isn't realistic for most real-world projectiles.  
+- Flat ground, neglecting any effects of terrain variation.  
+- Constant gravitational acceleration, which isn’t accurate for higher altitudes or other celestial bodies.  
+
+**To improve the model, you could:**
+
+- Incorporate air resistance using drag equations to model the deceleration of the projectile.  
+- Account for varying terrain by modifying the initial and final conditions of the projectile’s path.  
+- Consider varying gravity for different planetary conditions (e.g., Mars, Moon).  
+
+**Conclusion:**  
+Through this task, we explored the fundamental principles of projectile motion and derived the governing equations. By analyzing how the range depends on the launch angle, initial velocity, and gravity, we gained insight into both the physics and practical applications of projectile motion. The implementation of a simulation further enhances the understanding by visualizing the relationships and behaviors. Finally, by reflecting on the limitations of the idealized model, we identified possible improvements for more accurate real-world modeling.
+
+---
+
+![Projectile Range as a Function of Launch Angle](path-to-your-image/projectile-range-graph.png)
+
+*Projectile Range as a Function of Launch Angle*
