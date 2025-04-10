@@ -172,7 +172,93 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
-<p>edit</p>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The forced damped pendulum is a classic system in nonlinear dynamics. Whether in mechanical clocks, playground swings, or scientific experiments, it exhibits rich behaviors: resonance, damping, and even chaos. Understanding this system provides foundational insights into more complex real-world phenomena.</p>
+<hr/>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<p>The motion of a forced damped pendulum is governed by the second-order nonlinear differential equation:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = A \cos(\omega t)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\( \theta \)</span>: Angular displacement  </li>
+<li><span class="arithmatex">\( \beta \)</span>: Damping coefficient  </li>
+<li><span class="arithmatex">\( \omega_0 \)</span>: Natural frequency  </li>
+<li><span class="arithmatex">\( A \)</span>: Driving amplitude  </li>
+<li><span class="arithmatex">\( \omega \)</span>: Driving frequency  </li>
+</ul>
+<h3 id="small-angle-approximation">Small-Angle Approximation</h3>
+<p>For small angles we can approximate <span class="arithmatex">\( \sin(\theta) \approx \theta \)</span>, making the equation linear:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \omega_0^2 \theta = A \cos(\omega t)
+\]</div>
+<hr/>
+<h3 id="resonance">Resonance</h3>
+<p>Resonance occurs when the driving frequency equals the system's natural frequency with respect to the damping:</p>
+<div class="arithmatex">\[
+\omega = \sqrt{\omega_0^2 - \frac{\beta^2}{2}}
+\]</div>
+<hr/>
+<h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
+<h3 id="time-evolution">Time Evolution</h3>
+<p>The angular position over time can be numerically solved via methods like Euler or Runge-Kutta:</p>
+<div class="arithmatex">\[
+\theta'' = -\beta \theta' - \omega_0^2 \sin(\theta) + A \cos(\omega t)
+\]</div>
+<hr/>
+<h3 id="parametric-effects">Parametric Effects</h3>
+<ul>
+<li><strong>Damping (<span class="arithmatex">\( \beta \)</span>)</strong>: Reduces amplitude over time; suppresses chaotic behavior.  </li>
+<li><strong>Driving (<span class="arithmatex">\( A \)</span>, <span class="arithmatex">\( \omega \)</span>)</strong>: Influences oscillation strength and possible resonance.  </li>
+</ul>
+<hr/>
+<h3 id="transition-to-chaos">Transition to Chaos</h3>
+<p>As demonstrated by Strogatz and others, the forced pendulum becomes chaotic in specific amplitude and frequency ranges.<br/>
+Key signs include:
+- Aperiodic behavior<br/>
+- Extreme sensitivity to initial conditions  </p>
+<hr/>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<ul>
+<li><strong>Engineering Oscillators</strong>: Used to tune systems from car suspensions to mechanical energy harvesters.  </li>
+<li><strong>Neuroscience Models</strong>: Similar equations appear in neuron spiking (Hodgkin-Huxley model).  </li>
+<li><strong>Clocks &amp; Timekeeping</strong>: Historical use in accurate mechanical oscillators.  </li>
+</ul>
+<hr/>
+<h2 id="4-implementation">4. Implementation</h2>
+<h3 id="python-simulation-outline">Python Simulation Outline</h3>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<h1 id="parameters">Parameters</h1>
+<p>beta = 0.25
+omega0 = 1.5
+A = 1.2
+omega = 0.667</p>
+<h1 id="time-settings">Time settings</h1>
+<p>dt = 0.04
+t_max = 60
+t = np.arange(0, t_max, dt)</p>
+<h1 id="initialization">Initialization</h1>
+<p>theta = np.zeros_like(t)
+omega_dot = np.zeros_like(t)
+theta[0] = 0.2  # Initial angle</p>
+<h1 id="simulation-loop-euler-method">Simulation loop (Euler method)</h1>
+<p>for i in range(1, len(t)):
+    omega_dot[i] = omega_dot[i-1] + dt * (-beta * omega_dot[i-1] - omega0**2 * np.sin(theta[i-1]) + A * np.cos(omega * t[i-1]))
+    theta[i] = theta[i-1] + dt * omega_dot[i]</p>
+<h1 id="plotting">Plotting</h1>
+<p>plt.figure(figsize=(10,4))
+plt.plot(t, theta, label="θ(t)")
+plt.title("Damped Driven Pendulum Simulation")
+plt.xlabel("Time (s)")
+plt.ylabel("Angle (rad)")
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
