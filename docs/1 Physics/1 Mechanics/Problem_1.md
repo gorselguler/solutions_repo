@@ -10,49 +10,38 @@ Projectile motion is a foundational concept in mechanics. One important feature 
 
 x(t) = v₀ * cos(θ) * t
 
-shell
-Copy
-Edit
 
 ### Vertical motion (y-direction)
 
 y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
 
-shell
-Copy
-Edit
+
 
 ### Time of Flight (T)
 
 T = (2 * v₀ * sin(θ)) / g
 
-shell
-Copy
-Edit
+
 
 ### Range (R)
 
 R = v₀ * cos(θ) * T = (v₀² * sin(2θ)) / g
 
 mathematica
-Copy
-Edit
+
 
 ## 2. Range as a Function of Launch Angle
 
 R(θ) = (v₀² * sin(2θ)) / g
 
 go
-Copy
-Edit
 
 Maximum range occurs at:
 
 θ = 45°
 
 pgsql
-Copy
-Edit
+
 
 ## 3. Applications
 
