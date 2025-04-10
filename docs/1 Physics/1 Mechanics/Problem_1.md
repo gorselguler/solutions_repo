@@ -8,7 +8,7 @@ Projectile motion is a foundational concept in mechanics. One important feature 
 
 ### Horizontal motion (x-direction)
 
-x(t) = v₀ * cos(θ) * t
+x(t) = v₀ * cos(θ) * ta
 
 
 ### Vertical motion (y-direction)
