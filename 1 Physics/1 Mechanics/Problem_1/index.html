@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Investigating the Range as a Function of the Angle of Projection - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Investigating the Range as a Function of the Angle of Projection";
         var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,8 +46,28 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal current">1 Mechanics</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Investigating the Range as a Function of the Angle of Projection</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#horizontal-motion-x-direction">Horizontal motion (x-direction)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#vertical-motion-y-direction">Vertical motion (y-direction)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#time-of-flight-t">Time of Flight (T)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#range-r">Range (R)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-range-as-a-function-of-launch-angle">2. Range as a Function of Launch Angle</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-applications">3. Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-python-code">4. Python Code</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -163,7 +183,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">1 Mechanics</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Investigating the Range as a Function of the Angle of Projection</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,86 +191,57 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
 <h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
-<h2 id="motivation">🎯 Motivation</h2>
-<p>Projectile motion is a foundational concept in mechanics, where equations of motion can be used to understand the motion of objects under uniform acceleration. One important feature of projectile motion is the <strong>range</strong>, and how it changes with the <strong>angle of projection</strong>.</p>
-<hr/>
-<h2 id="1-theoretical-foundation">1. 🧠 Theoretical Foundation</h2>
-<h3 id="horizontal-motion-x-direction">Horizontal motion (x-direction):</h3>
-<p>The horizontal motion is uniform (no acceleration):
-x(t) = v₀ * cos(θ) * t</p>
-<p>csharp
+<h2 id="motivation">Motivation</h2>
+<p>Projectile motion is a foundational concept in mechanics. One important feature of projectile motion is the range, and how it changes with the angle of projection.</p>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="horizontal-motion-x-direction">Horizontal motion (x-direction)</h3>
+<p>x(t) = v₀ * cos(θ) * t</p>
+<p>shell
 Copy
 Edit</p>
-<h3 id="vertical-motion-y-direction">Vertical motion (y-direction):</h3>
-<p>The vertical motion is uniformly accelerated:
-y(t) = v₀ * sin(θ) * t - (1/2) * g * t²</p>
+<h3 id="vertical-motion-y-direction">Vertical motion (y-direction)</h3>
+<p>y(t) = v₀ * sin(θ) * t - (1/2) * g * t²</p>
+<p>shell
+Copy
+Edit</p>
+<h3 id="time-of-flight-t">Time of Flight (T)</h3>
+<p>T = (2 * v₀ * sin(θ)) / g</p>
+<p>shell
+Copy
+Edit</p>
+<h3 id="range-r">Range (R)</h3>
+<p>R = v₀ * cos(θ) * T = (v₀² * sin(2θ)) / g</p>
+<p>mathematica
+Copy
+Edit</p>
+<h2 id="2-range-as-a-function-of-launch-angle">2. Range as a Function of Launch Angle</h2>
+<p>R(θ) = (v₀² * sin(2θ)) / g</p>
+<p>go
+Copy
+Edit</p>
+<p>Maximum range occurs at:</p>
+<p>θ = 45°</p>
 <p>pgsql
 Copy
 Edit</p>
-<h3 id="time-of-flight-t">Time of Flight (T):</h3>
-<p>We calculate time when the object returns to y = 0:
-T = (2 * v₀ * sin(θ)) / g</p>
-<p>csharp
-Copy
-Edit</p>
-<h3 id="range-r">Range (R):</h3>
-<p>Plug T into the horizontal motion:
-R = v₀ * cos(θ) * T = (v₀² * sin(2θ)) / g</p>
-<p>yaml
-Copy
-Edit</p>
-<hr/>
-<h2 id="2-analysis-of-the-range">2. 📈 Analysis of the Range</h2>
-<h3 id="range-as-a-function-of-the-launch-angle">Range as a Function of the Launch Angle</h3>
-<p>The function is:
-R(θ) = (v₀² * sin(2θ)) / g</p>
-<p>yaml
-Copy
-Edit
-- Maximum range is achieved at <strong>θ = 45°</strong> because <strong>sin(2θ)</strong> reaches its maximum at <strong>2θ = 90°</strong>.</p>
-<hr/>
-<h2 id="3-practical-applications">3. ⚙️ Practical Applications</h2>
+<h2 id="3-applications">3. Applications</h2>
 <ul>
-<li>Ballistics</li>
-<li>Sports Science (soccer, basketball, etc.)</li>
-<li>Engineering (throwing mechanics)</li>
+<li>Ballistics  </li>
+<li>Sports  </li>
+<li>Engineering  </li>
 </ul>
-<hr/>
-<h2 id="4-limitations-and-suggestions-for-improvements">4. Limitations and Suggestions for Improvements:</h2>
-<p><strong>The current model assumes:</strong></p>
-<ul>
-<li>No air resistance, which isn't realistic for most real-world projectiles.  </li>
-<li>Flat ground, neglecting any effects of terrain variation.  </li>
-<li>Constant gravitational acceleration, which isn’t accurate for higher altitudes or other celestial bodies.  </li>
-</ul>
-<p><strong>To improve the model, you could:</strong></p>
-<ul>
-<li>Incorporate air resistance using drag equations to model the deceleration of the projectile.  </li>
-<li>Account for varying terrain by modifying the initial and final conditions of the projectile’s path.  </li>
-<li>Consider varying gravity for different planetary conditions (e.g., Mars, Moon).  </li>
-</ul>
-<p><strong>Conclusion:</strong><br/>
-Through this task, we explored the fundamental principles of projectile motion and derived the governing equations. By analyzing how the range depends on the launch angle, initial velocity, and gravity, we gained insight into both the physics and practical applications of projectile motion. The implementation of a simulation further enhances the understanding by visualizing the relationships and behaviors. Finally, by reflecting on the limitations of the idealized model, we identified possible improvements for more accurate real-world modeling.</p>
-<hr/>
-<p><img alt="Projectile Range as a Function of Launch Angle" src="path-to-your-image/projectile-range-graph.png"/></p>
-<p><em>Projectile Range as a Function of Launch Angle</em></p>
-<h2 id="5-implementation-python-code">5. 💻 Implementation (Python Code)</h2>
+<h2 id="4-python-code">4. Python Code</h2>
 <p>```python
 import numpy as np
 import matplotlib.pyplot as plt</p>
-<h1 id="parameters">Parameters</h1>
-<p>v0 = 20  # Initial velocity (m/s)
-g = 9.81  # Gravitational acceleration (m/s^2)</p>
-<h1 id="angle-range-from-0-to-90">Angle range from 0° to 90°</h1>
-<p>angles_deg = np.arange(0, 91, 1)
-angles_rad = np.radians(angles_deg)</p>
-<h1 id="compute-range-for-each-angle">Compute range for each angle</h1>
-<p>ranges = (v0 ** 2) * np.sin(2 * angles_rad) / g</p>
-<h1 id="plotting">Plotting</h1>
+<p>v0 = 20
+g = 9.81
+angles_deg = np.arange(0, 91, 1)
+angles_rad = np.radians(angles_deg)
+ranges = (v0 ** 2) * np.sin(2 * angles_rad) / g</p>
 <p>plt.figure(figsize=(10, 5))
-plt.plot(angles_deg, ranges, color='royalblue', linewidth=2)
+plt.plot(angles_deg, ranges, color='blue', linewidth=2)
 plt.title("Projectile Range vs Launch Angle")
 plt.xlabel("Launch Angle (degrees)")
 plt.ylabel("Range (meters)")
