@@ -218,7 +218,25 @@ Edit
 <li>Engineering (throwing mechanics)</li>
 </ul>
 <hr/>
-<h2 id="4-implementation-python-code">4. 💻 Implementation (Python Code)</h2>
+<h2 id="4-limitations-and-suggestions-for-improvements">4. Limitations and Suggestions for Improvements:</h2>
+<p><strong>The current model assumes:</strong></p>
+<ul>
+<li>No air resistance, which isn't realistic for most real-world projectiles.  </li>
+<li>Flat ground, neglecting any effects of terrain variation.  </li>
+<li>Constant gravitational acceleration, which isn’t accurate for higher altitudes or other celestial bodies.  </li>
+</ul>
+<p><strong>To improve the model, you could:</strong></p>
+<ul>
+<li>Incorporate air resistance using drag equations to model the deceleration of the projectile.  </li>
+<li>Account for varying terrain by modifying the initial and final conditions of the projectile’s path.  </li>
+<li>Consider varying gravity for different planetary conditions (e.g., Mars, Moon).  </li>
+</ul>
+<p><strong>Conclusion:</strong><br/>
+Through this task, we explored the fundamental principles of projectile motion and derived the governing equations. By analyzing how the range depends on the launch angle, initial velocity, and gravity, we gained insight into both the physics and practical applications of projectile motion. The implementation of a simulation further enhances the understanding by visualizing the relationships and behaviors. Finally, by reflecting on the limitations of the idealized model, we identified possible improvements for more accurate real-world modeling.</p>
+<hr/>
+<p><img alt="Projectile Range as a Function of Launch Angle" src="path-to-your-image/projectile-range-graph.png"/></p>
+<p><em>Projectile Range as a Function of Launch Angle</em></p>
+<h2 id="5-implementation-python-code">5. 💻 Implementation (Python Code)</h2>
 <p>```python
 import numpy as np
 import matplotlib.pyplot as plt</p>
@@ -241,24 +259,6 @@ plt.axvline(45, color='red', linestyle='--', label='Max Range at 45°')
 plt.legend()
 plt.tight_layout()
 plt.show()</p>
-<h2 id="5-limitations-and-suggestions-for-improvements">5. Limitations and Suggestions for Improvements:</h2>
-<p><strong>The current model assumes:</strong></p>
-<ul>
-<li>No air resistance, which isn't realistic for most real-world projectiles.  </li>
-<li>Flat ground, neglecting any effects of terrain variation.  </li>
-<li>Constant gravitational acceleration, which isn’t accurate for higher altitudes or other celestial bodies.  </li>
-</ul>
-<p><strong>To improve the model, you could:</strong></p>
-<ul>
-<li>Incorporate air resistance using drag equations to model the deceleration of the projectile.  </li>
-<li>Account for varying terrain by modifying the initial and final conditions of the projectile’s path.  </li>
-<li>Consider varying gravity for different planetary conditions (e.g., Mars, Moon).  </li>
-</ul>
-<p><strong>Conclusion:</strong><br/>
-Through this task, we explored the fundamental principles of projectile motion and derived the governing equations. By analyzing how the range depends on the launch angle, initial velocity, and gravity, we gained insight into both the physics and practical applications of projectile motion. The implementation of a simulation further enhances the understanding by visualizing the relationships and behaviors. Finally, by reflecting on the limitations of the idealized model, we identified possible improvements for more accurate real-world modeling.</p>
-<hr/>
-<p><img alt="Projectile Range as a Function of Launch Angle" src="path-to-your-image/projectile-range-graph.png"/></p>
-<p><em>Projectile Range as a Function of Launch Angle</em></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
