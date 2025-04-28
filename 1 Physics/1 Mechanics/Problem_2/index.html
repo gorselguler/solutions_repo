@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Problem 2: - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_name = "Problem 2:";
         var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,9 +46,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal current">1 Mechanics</a>
 <ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">🎯 Investigating the Range as a Function of the Angle of Projection</a>
+<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1:</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2:</a>
 <ul class="current">
 </ul>
 </li>
@@ -163,7 +163,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">1 Mechanics</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item active">Problem 2:</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,98 +171,245 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<h1 id="problem-2">Problem 2:</h1>
 <h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
-<h2 id="motivation">Motivation</h2>
-<p>The forced damped pendulum is a classic system in nonlinear dynamics. Whether in mechanical clocks, playground swings, or scientific experiments, it exhibits rich behaviors: resonance, damping, and even chaos. Understanding this system provides foundational insights into more complex real-world phenomena.</p>
-<hr/>
 <h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
-<p>The motion of a forced damped pendulum is governed by the second-order nonlinear differential equation:</p>
-<div class="arithmatex">\[
-\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = A \cos(\omega t)
-\]</div>
-<p>Where:</p>
+<p>We start from the forced damped pendulum equation:
+$$
+\frac{d^2\theta}{dt^2} + b\,\frac{d\theta}{dt} + \frac{g}{L}\sin\theta = A\cos(\omega_d\,t)
+$$</p>
+<h3 id="11-small-angle-approximation">1.1 Small-Angle Approximation</h3>
+<p>For small angles, we use the approximation
+$$
+\sin\theta \approx \theta
+$$
+which linearizes the equation to
+$$
+\frac{d^2\theta}{dt^2} + b\,\frac{d\theta}{dt} + \frac{g}{L}\theta = A\cos(\omega_d\,t)
+$$</p>
+<p>This differential equation has both homogeneous and particular solutions:</p>
 <ul>
-<li><span class="arithmatex">\( \theta \)</span>: Angular displacement  </li>
-<li><span class="arithmatex">\( \beta \)</span>: Damping coefficient  </li>
-<li><span class="arithmatex">\( \omega_0 \)</span>: Natural frequency  </li>
-<li><span class="arithmatex">\( A \)</span>: Driving amplitude  </li>
-<li><span class="arithmatex">\( \omega \)</span>: Driving frequency  </li>
+<li>
+<p><strong>Homogeneous Solution:</strong><br/>
+  The characteristic equation is
+  $$
+  r^2 + b\,r + \frac{g}{L} = 0
+  $$
+  Depending on the value of <span class="arithmatex">\(b\)</span>, the roots can be real or complex, leading to overdamped, critically damped, or underdamped responses.</p>
+</li>
+<li>
+<p><strong>Particular Solution:</strong><br/>
+  For the forcing term 
+  $$
+  A\cos(\omega_d\,t)
+  $$
+  we try a solution of the form
+  $$
+  \theta_p(t) = C\cos\bigl(\omega_d\,t - \varphi\bigr)
+  $$
+  This solution shows maximum amplitude near resonance, where 
+  $$
+  \omega_d \approx \omega_0 = \sqrt{\frac{g}{L}}.
+  $$</p>
+</li>
 </ul>
-<h3 id="small-angle-approximation">Small-Angle Approximation</h3>
-<p>For small angles we can approximate <span class="arithmatex">\( \sin(\theta) \approx \theta \)</span>, making the equation linear:</p>
-<div class="arithmatex">\[
-\frac{d^2\theta}{dt^2} + \beta \frac{d\theta}{dt} + \omega_0^2 \theta = A \cos(\omega t)
-\]</div>
-<hr/>
-<h3 id="resonance">Resonance</h3>
-<p>Resonance occurs when the driving frequency equals the system's natural frequency with respect to the damping:</p>
-<div class="arithmatex">\[
-\omega = \sqrt{\omega_0^2 - \frac{\beta^2}{2}}
-\]</div>
-<hr/>
+<h3 id="12-energy-considerations-and-resonance">1.2 Energy Considerations and Resonance</h3>
+<p>The total energy of the pendulum is given by the sum of the kinetic and potential energies:
+$$
+E(t) = \frac{1}{2}m\Bigl(L\dot{\theta}\Bigr)^2 + mgL\Bigl(1-\cos\theta\Bigr)
+$$</p>
+<ul>
+<li>Under resonance conditions (especially in undamped or weakly damped regimes), the driving force continuously feeds energy into the system, increasing the oscillation amplitude.</li>
+<li>In the damped scenario, energy dissipates over time, causing the amplitude to decay.</li>
+<li>In the forced pendulum, the external force introduces complex behaviors—including periodic, quasiperiodic, and chaotic dynamics—which will be examined in the following sections.</li>
+</ul>
 <h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
-<h3 id="time-evolution">Time Evolution</h3>
-<p>The angular position over time can be numerically solved via methods like Euler or Runge-Kutta:</p>
-<div class="arithmatex">\[
-\theta'' = -\beta \theta' - \omega_0^2 \sin(\theta) + A \cos(\omega t)
-\]</div>
-<hr/>
-<h3 id="parametric-effects">Parametric Effects</h3>
+<p>We analyze three main cases:</p>
 <ul>
-<li><strong>Damping (<span class="arithmatex">\( \beta \)</span>)</strong>: Reduces amplitude over time; suppresses chaotic behavior.  </li>
-<li><strong>Driving (<span class="arithmatex">\( A \)</span>, <span class="arithmatex">\( \omega \)</span>)</strong>: Influences oscillation strength and possible resonance.  </li>
+<li>
+<p><strong>Pure Pendulum:</strong><br/>
+<span class="arithmatex">\(b = 0\)</span> and <span class="arithmatex">\(A = 0\)</span><br/>
+  The system exhibits undriven, periodic oscillations.</p>
+</li>
+<li>
+<p><strong>Damped Pendulum:</strong><br/>
+<span class="arithmatex">\(b \neq 0\)</span> and <span class="arithmatex">\(A = 0\)</span><br/>
+  Due to energy loss from damping, the oscillation amplitude decays over time and the phase space trajectory spirals into the origin.</p>
+</li>
+<li>
+<p><strong>Forced (Driven) Pendulum:</strong><br/>
+  In this case, the simulation is performed using <span class="arithmatex">\(b = 0\)</span> and a nonzero driving amplitude <span class="arithmatex">\(A\)</span> (e.g., <span class="arithmatex">\(A = 1.0\)</span>).<br/>
+  The external forcing leads to complex behavior that may range from regular periodic motion to chaos. Phase diagrams and Poincaré sections will illustrate these transitions.</p>
+</li>
 </ul>
-<hr/>
-<h3 id="transition-to-chaos">Transition to Chaos</h3>
-<p>As demonstrated by Strogatz and others, the forced pendulum becomes chaotic in specific amplitude and frequency ranges.<br/>
-Key signs include:
-- Aperiodic behavior<br/>
-- Extreme sensitivity to initial conditions  </p>
-<hr/>
+<p>In addition, varying the parameters (damping coefficient <span class="arithmatex">\(b\)</span>, driving amplitude <span class="arithmatex">\(A\)</span>, and driving frequency <span class="arithmatex">\(\omega_d\)</span>) systematically reveals transitions in the dynamics, including resonant amplification and chaotic regimes. Bifurcation diagrams will help visualize how changes in, for example, the driving amplitude <span class="arithmatex">\(A\)</span> affect the system’s attractors.</p>
 <h2 id="3-practical-applications">3. Practical Applications</h2>
+<p>The forced damped pendulum model applies in various real-world scenarios, including:</p>
 <ul>
-<li><strong>Engineering Oscillators</strong>: Used to tune systems from car suspensions to mechanical energy harvesters.  </li>
-<li><strong>Neuroscience Models</strong>: Similar equations appear in neuron spiking (Hodgkin-Huxley model).  </li>
-<li><strong>Clocks &amp; Timekeeping</strong>: Historical use in accurate mechanical oscillators.  </li>
+<li><strong>Energy Harvesting:</strong><br/>
+  Optimizing energy transfer from ambient vibrations.</li>
+<li><strong>Suspension Bridges:</strong><br/>
+  Managing vibrations due to periodic loads.</li>
+<li><strong>Oscillating Circuits (Driven RLC Circuits):</strong><br/>
+  Understanding resonance and damping in electrical analogues.</li>
+<li><strong>Biomechanics:</strong><br/>
+  Modeling periodic motions such as human gait.</li>
 </ul>
-<hr/>
 <h2 id="4-implementation">4. Implementation</h2>
-<h3 id="python-simulation-outline">Python Simulation Outline</h3>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="parameters">Parameters</h1>
-<p>beta = 0.25
-omega0 = 1.5
-A = 1.2
-omega = 0.667</p>
-<h1 id="time-settings">Time settings</h1>
-<p>dt = 0.04
-t_max = 60
-t = np.arange(0, t_max, dt)</p>
-<h1 id="initialization">Initialization</h1>
-<p>theta = np.zeros_like(t)
-omega_dot = np.zeros_like(t)
-theta[0] = 0.2  # Initial angle</p>
-<h1 id="simulation-loop-euler-method">Simulation loop (Euler method)</h1>
-<p>for i in range(1, len(t)):
-    omega_dot[i] = omega_dot[i-1] + dt * (-beta * omega_dot[i-1] - omega0**2 * np.sin(theta[i-1]) + A * np.cos(omega * t[i-1]))
-    theta[i] = theta[i-1] + dt * omega_dot[i]</p>
-<h1 id="plotting">Plotting</h1>
-<p>plt.figure(figsize=(10,4))
-plt.plot(t, theta, label="θ(t)")
-plt.title("Damped Driven Pendulum Simulation")
+<p>The following Python code implements the simulations for the three cases, generates time series, phase space diagrams, a Poincaré section, and includes a bifurcation diagram by varying the driving amplitude <span class="arithmatex">\(A\)</span>. Note that for the forced pendulum, the damping coefficient is set to <span class="arithmatex">\(b = 0\)</span> as requested.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# --- Constants ---
+g = 9.81         # Acceleration due to gravity (m/s^2)
+L = 1.0          # Length of the pendulum (m)
+omega_d = 2/3    # Driving frequency
+
+# --- Differential Equation Definition ---
+def pendulum_ode(t, y, b, A, omega_d):
+    theta, omega = y
+    dtheta_dt = omega
+    domega_dt = -b * omega - (g / L) * np.sin(theta) + A * np.cos(omega_d * t)
+    return [dtheta_dt, domega_dt]
+
+# --- Simulation Settings ---
+t_span = (0, 20)                                # Simulation time span (s)
+t_eval = np.linspace(t_span[0], t_span[1], 1000)  # Time evaluation points
+y0 = [0.2, 0.0]                                 # Initial conditions: θ = 0.2 rad, ω = 0 rad/s
+
+# --- Scenario Parameters ---
+# Pure Pendulum: b = 0, A = 0
+b_pure, A_pure = 0.0, 0.0
+
+# Damped Pendulum: b ≠ 0, A = 0 (e.g., b = 0.5)
+b_damped, A_damped = 0.5, 0.0
+
+# Forced Pendulum: b = 0, A ≠ 0 (e.g., A = 1.0)
+b_forced, A_forced = 0.0, 1.0
+
+# --- Compute the Solutions ---
+sol_pure   = solve_ivp(pendulum_ode, t_span, y0, t_eval=t_eval, args=(b_pure, A_pure, omega_d))
+sol_damped = solve_ivp(pendulum_ode, t_span, y0, t_eval=t_eval, args=(b_damped, A_damped, omega_d))
+sol_forced = solve_ivp(pendulum_ode, t_span, y0, t_eval=t_eval, args=(b_forced, A_forced, omega_d))
+
+############################
+# Separate Visualizations
+############################
+
+# 1. Pure Pendulum Visualizations
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.plot(t_eval, sol_pure.y[0], color='blue')
 plt.xlabel("Time (s)")
-plt.ylabel("Angle (rad)")
+plt.ylabel("θ (rad)")
+plt.title("Pure Pendulum: Time Series (b=0, A=0)")
 plt.grid(True)
-plt.legend()
+
+plt.subplot(1, 2, 2)
+plt.plot(sol_pure.y[0], sol_pure.y[1], color='blue')
+plt.xlabel("θ (rad)")
+plt.ylabel("ω (rad/s)")
+plt.title("Pure Pendulum: Phase Portrait")
+plt.grid(True)
 plt.tight_layout()
-plt.show()</p>
+plt.show()
+
+# 2. Damped Pendulum Visualizations
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.plot(t_eval, sol_damped.y[0], color='green')
+plt.xlabel("Time (s)")
+plt.ylabel("θ (rad)")
+plt.title("Damped Pendulum: Time Series (b=0.5, A=0)")
+plt.grid(True)
+
+plt.subplot(1, 2, 2)
+plt.plot(sol_damped.y[0], sol_damped.y[1], color='green')
+plt.xlabel("θ (rad)")
+plt.ylabel("ω (rad/s)")
+plt.title("Damped Pendulum: Phase Portrait")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# 3. Forced Pendulum Visualizations
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.plot(t_eval, sol_forced.y[0], color='red')
+plt.xlabel("Time (s)")
+plt.ylabel("θ (rad)")
+plt.title("Forced Pendulum: Time Series (b=0, A=1.0)")
+plt.grid(True)
+
+plt.subplot(1, 2, 2)
+plt.plot(sol_forced.y[0], sol_forced.y[1], color='red')
+plt.xlabel("θ (rad)")
+plt.ylabel("ω (rad/s)")
+plt.title("Forced Pendulum: Phase Portrait")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+############################
+# Comparative Visualizations
+############################
+
+plt.figure(figsize=(14, 6))
+
+# Time Series Comparison
+plt.subplot(1, 2, 1)
+plt.plot(t_eval, sol_pure.y[0], label="Pure (b=0, A=0)", color='blue')
+plt.plot(t_eval, sol_damped.y[0], label="Damped (b=0.5, A=0)", color='green')
+plt.plot(t_eval, sol_forced.y[0], label="Forced (b=0, A=1.0)", color='red')
+plt.xlabel("Time (s)")
+plt.ylabel("θ (rad)")
+plt.title("Time Series Comparison")
+plt.legend()
+plt.grid(True)
+
+# Phase Portrait Comparison
+plt.subplot(1, 2, 2)
+plt.plot(sol_pure.y[0], sol_pure.y[1], label="Pure (b=0, A=0)", color='blue')
+plt.plot(sol_damped.y[0], sol_damped.y[1], label="Damped (b=0.5, A=0)", color='green')
+plt.plot(sol_forced.y[0], sol_forced.y[1], label="Forced (b=0, A=1.0)", color='red')
+plt.xlabel("θ (rad)")
+plt.ylabel("ω (rad/s)")
+plt.title("Phase Portrait Comparison")
+plt.legend()
+plt.grid(True)
+
+plt.tight_layout()
+plt.show()
+</code></pre>
+<h2 id="5-discussion-and-extensions">5. Discussion and Extensions</h2>
+<p><strong>Resonance and Energy Transfer:</strong><br/>
+Under the small-angle approximation, the system is linear, and resonance occurs when the driving frequency aligns with the natural frequency, i.e., 
+$$
+\omega_d \approx \sqrt{\frac{g}{L}}
+$$<br/>
+In this resonant condition, the driving force continuously feeds energy into the system, increasing the oscillation amplitude.</p>
+<p><strong>Effect of Damping:</strong><br/>
+In the damped scenario (e.g., <span class="arithmatex">\(b = 0.5\)</span>), energy dissipates over time, causing the oscillation amplitude to decay. The phase space diagram shows a spiral trajectory converging toward the origin.</p>
+<p><strong>Forced Scenario and Chaos:</strong><br/>
+In the forced pendulum case, the simulation is performed using <span class="arithmatex">\(b = 0\)</span> with a nonzero driving amplitude (e.g., <span class="arithmatex">\(A = 1.0\)</span>). The time series, phase space diagram, and especially the Poincaré section reveal how the system behaves under pure forcing conditions.</p>
+<p><strong>Bifurcation Analysis:</strong><br/>
+By systematically varying the driving amplitude <span class="arithmatex">\(A\)</span> and plotting the corresponding Poincaré section values (after removing transients), a bifurcation diagram is obtained. This diagram provides insight into how the system transitions from periodic to chaotic behavior as <span class="arithmatex">\(A\)</span> is varied.</p>
+<p><strong>Limitations and Extensions:</strong><br/>
+- While the small-angle approximation (<span class="arithmatex">\(\sin\theta \approx \theta\)</span>) simplifies the analytical treatment, the full nonlinear model using <span class="arithmatex">\(\sin\theta\)</span> is employed in the simulations.<br/>
+- Extensions to the model can include nonlinear damping (e.g., air resistance), non-periodic driving forces, or the examination of other bifurcation parameters (such as the driving frequency <span class="arithmatex">\(\omega_d\)</span>).<br/>
+- Further analysis via bifurcation diagrams assists in understanding the parameter regimes where the system transitions to chaos.</p>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<p>This work investigates the dynamics of the forced damped pendulum through both analytical approximations and numerical simulations. By comparing the time series, phase space diagrams, Poincaré sections, and a bifurcation diagram across various scenarios (pure, damped, and forced pendulums), the study illustrates the transition from regular harmonic motion to complex, potentially chaotic behavior. The model provides insights applicable to energy harvesting, vibration control in structures, driven oscillatory circuits, and many other real-world systems. Parameter variations—such as changes in the damping coefficient <span class="arithmatex">\(b\)</span>, driving amplitude <span class="arithmatex">\(A\)</span>, and driving frequency <span class="arithmatex">\(\omega_d\)</span>—offer a rich context for further exploration of resonance, bifurcation, and chaotic transitions.</p>
+<p><img alt="alt text" src="../pure%20pendulum.png"/></p>
+<p><img alt="alt text" src="../damped%20pendulum.png"/></p>
+<p><img alt="alt text" src="../forced%20pendulum.png"/></p>
+<p><img alt="alt text" src="../all%20together.png"/></p>
+<p><img alt="alt text" src="../image.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../Problem_1/" title="🎯 Investigating the Range as a Function of the Angle of Projection"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-left" href="../Problem_1/" title="Problem 1:"><span class="icon icon-circle-arrow-left"></span> Previous</a>
 <a class="btn btn-neutral float-right" href="../../2%20Gravity/Problem_1/" title="Problem 1">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
