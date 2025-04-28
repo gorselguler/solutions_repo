@@ -1,73 +1,70 @@
-# Investigating the Range as a Function of the Angle of Projection
+# 🎯 Investigating the Range as a Function of the Angle of Projection
 
-## Motivation
+![Projectile Motion](https://upload.wikimedia.org/wikipedia/commons/3/3e/Projectile_Motion.png)
 
-Projectile motion is a foundational concept in mechanics. One important feature of projectile motion is the range, and how it changes with the angle of projection.
+## 🚀 Problem Overview
 
-## 1. Theoretical Foundation
+Investigate how the **range** of a projectile depends on its **launch angle** under ideal conditions:
+- No air resistance
+- Constant gravitational acceleration
 
-### Horizontal motion (x-direction)
+---
 
-x(t) = v₀ * cos(θ) * t
+## 📚 Theoretical Foundation
 
+The projectile's motion splits into two components:
 
-### Vertical motion (y-direction)
+- **Horizontal displacement**:
+  \[
+  x(t) = v_0 \cos(\theta) t
+  \]
+- **Vertical displacement**:
+  \[
+  y(t) = v_0 \sin(\theta) t - \frac{1}{2} g t^2
+  \]
 
-y(t) = v₀ * sin(θ) * t - (1/2) * g * t²
+Where:
+- \( v_0 \) = initial velocity
+- \( \theta \) = launch angle
+- \( g \) = gravitational acceleration (9.81 m/s²)
 
+**Total time of flight** when \( y = 0 \):
 
+\[
+t = \frac{2v_0 \sin(\theta)}{g}
+\]
 
-### Time of Flight (T)
+Thus, the **range** \( R \) is:
 
-T = (2 * v₀ * sin(θ)) / g
+\[
+R = \frac{v_0^2 \sin(2\theta)}{g}
+\]
 
+> 🧠 **Key Result**: Maximum range occurs when \( \theta = 45^\circ \).
 
+---
 
-### Range (R)
+## 📈 Python Simulation
 
-R = v₀ * cos(θ) * T = (v₀² * sin(2θ)) / g
-
-mathematica
-
-
-## 2. Range as a Function of Launch Angle
-
-R(θ) = (v₀² * sin(2θ)) / g
-
-go
-
-Maximum range occurs at:
-
-θ = 45°
-
-pgsql
-
-
-## 3. Applications
-
-- Ballistics  
-- Sports  
-- Engineering  
-
-## 4. Python Code
+Use the following code to simulate and plot the projectile range vs launch angle:
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-v0 = 20
-g = 9.81
-angles_deg = np.arange(0, 91, 1)
-angles_rad = np.radians(angles_deg)
-ranges = (v0 ** 2) * np.sin(2 * angles_rad) / g
+# Constants
+g = 9.81  # m/s²
+v0 = 20   # initial velocity (m/s)
 
-plt.figure(figsize=(10, 5))
-plt.plot(angles_deg, ranges, color='blue', linewidth=2)
-plt.title("Projectile Range vs Launch Angle")
-plt.xlabel("Launch Angle (degrees)")
-plt.ylabel("Range (meters)")
+# Angle range
+angles = np.linspace(0, 90, 500)
+ranges = (v0**2) * np.sin(np.deg2rad(2*angles)) / g
+
+# Plotting
+plt.figure(figsize=(10,6))
+plt.plot(angles, ranges, 'b-', linewidth=2)
+plt.title('Projectile Range vs Launch Angle', fontsize=16)
+plt.xlabel('Launch Angle (degrees)', fontsize=14)
+plt.ylabel('Range (meters)', fontsize=14)
 plt.grid(True)
-plt.axvline(45, color='red', linestyle='--', label='Max Range at 45°')
-plt.legend()
-plt.tight_layout()
 plt.show()
