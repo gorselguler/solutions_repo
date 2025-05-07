@@ -13,7 +13,7 @@
 <script>
         // Current page data
         var mkdocs_page_name = "Problem 1";
-        var mkdocs_page_input_path = "1 Physics/6 Statistics/Problem_1.md";
+        var mkdocs_page_input_path = "1 Physics/3 Waves/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
 <!--[if lt IE 9]>
@@ -62,9 +62,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal">3 Waves</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../../3%20Waves/Problem_1/">Problem 1</a>
+<li class="toctree-l1 current"><a class="reference internal current">3 Waves</a>
+<ul class="current">
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<ul class="current">
+</ul>
 </li>
 </ul>
 </li>
@@ -80,13 +82,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal current">6 Statistics</a>
-<ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
-<ul class="current">
-</ul>
+<li class="toctree-l1"><a class="reference internal">6 Statistics</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Problem 1</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Problem 2</a>
 </li>
 </ul>
 </li>
@@ -162,7 +162,7 @@
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
-<li class="breadcrumb-item">6 Statistics</li>
+<li class="breadcrumb-item">3 Waves</li>
 <li class="breadcrumb-item active">Problem 1</li>
 <li class="wy-breadcrumbs-aside">
 </li>
@@ -172,11 +172,172 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="interference-patterns-on-a-water-surface"># Interference Patterns on a Water Surface</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Interference on a water surface provides a beautiful, tangible example of how waves interact. By studying these patterns from coherent point sources arranged in a regular polygon, we can observe and analyze wave superposition, constructive interference (bright spots), and destructive interference (dark spots).</p>
+<hr/>
+<h2 id="assumptions-and-parameters">Assumptions and Parameters</h2>
+<ul>
+<li>All sources emit circular waves.</li>
+<li>Same amplitude </li>
+</ul>
+<div class="arithmatex">\[
+ A 
+ \]</div>
+<p>, wavelength </p>
+<p>$$
+  \lambda 
+  $$</p>
+<p>, and frequency </p>
+<p>$$
+   f 
+   $$
+   .
+- The phase is constant across all sources.</p>
+<hr/>
+<h2 id="imports-and-configuration">Imports and Configuration</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+</code></pre>
+<hr/>
+<h2 id="observations">Observations</h2>
+<ul>
+<li><strong>Constructive Interference</strong>: Regions where waves add (bright colors).</li>
+<li><strong>Destructive Interference</strong>: Regions where waves cancel (dark colors).</li>
+<li><strong>Symmetry</strong>: The pattern reflects the symmetry of the polygon.</li>
+</ul>
+<p>Try changing <code>N</code> to 3 (triangle), 4 (square), or more to explore different polygon arrangements.</p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>This simulation shows how coherent sources produce rich interference patterns. The configuration of the sources determines the spatial frequency and symmetry of the interference. Such analyses are useful in acoustics, optics, and wave physics in general.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Dalga parametreleri
+A = 1.0
+wavelength = 1.0
+k = 2 * np.pi / wavelength
+omega = 2 * np.pi
+phi = 0
+t = 0.0
+
+# Grid tanımı
+x = np.linspace(-5, 5, 500)
+y = np.linspace(-5, 5, 500)
+X, Y = np.meshgrid(x, y)
+
+# Kaynakların yer alacağı dairenin yarıçapı
+radius = 2.0
+
+# Kaynakları üret
+def generate_sources(N):
+    if N == 1:
+        return [(0, 0)]  # Tek kaynak merkezde
+    elif N == 2:
+        return [(-radius / 2, 0), (radius / 2, 0)]  # İki kaynak yatay eksende
+    else:
+        raise ValueError("Bu sürüm sadece N=1 ve N=2 içindir.")
+
+# Girişim desenini çiz
+def plot_pattern(N):
+    sources = generate_sources(N)
+    Z = np.zeros_like(X)
+    for sx, sy in sources:
+        r = np.sqrt((X - sx)**2 + (Y - sy)**2)
+        Z += A * np.sin(k * r - omega * t + phi)
+
+    plt.figure(figsize=(6, 6))
+    plt.contourf(X, Y, Z, levels=100, cmap='seismic')
+
+    # Kaynakları siyah noktalarla çiz
+    for sx, sy in sources:
+        plt.plot(sx, sy, 'ko')
+
+    plt.title(f'{N} Noktalı Kaynak Girişimi')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.axis('equal')
+    plt.colorbar(label='Dalga Yer Değişimi')
+    plt.grid(True)
+    plt.show()
+
+# Yalnızca N = 1 ve N = 2 durumları için çizim
+for N in [1, 2]:
+    plot_pattern(N)
+</code></pre>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+A = 1.0
+wavelength = 1.0
+k = 2 * np.pi / wavelength
+omega = 2 * np.pi
+phi = 0
+t = 0.0
+x = np.linspace(-5, 5, 500)
+y = np.linspace(-5, 5, 500)
+X, Y = np.meshgrid(x, y)
+radius = 2.0
+
+def generate_polygon_sources(N, radius):
+    angles = np.linspace(0, 2 * np.pi, N, endpoint=False)
+    return [(radius * np.cos(a), radius * np.sin(a)) for a in angles]
+
+def plot_pattern(N):
+    sources = generate_polygon_sources(N, radius)
+    Z = np.zeros_like(X)
+    for sx, sy in sources:
+        r = np.sqrt((X - sx)**2 + (Y - sy)**2)
+        Z += A * np.sin(k * r - omega * t + phi)
+    plt.figure(figsize=(6, 6))
+    plt.contourf(X, Y, Z, levels=100, cmap='seismic')
+    for sx, sy in sources:
+        plt.plot(sx, sy, 'ko')
+    plt.title(f'{N}-Point Source Interference')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.axis('equal')
+    plt.colorbar(label='Wave Displacement')
+    plt.grid(True)
+    plt.show()
+
+# Triangle, Square, Pentagon
+for N in [3, 4, 5]:
+    plot_pattern(N)
+</code></pre>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<p><img alt="alt text" src="../image.png"/></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<pre><code class="language-python">from mpl_toolkits.mplot3d import Axes3D
+
+def plot_3d_surface(N):
+    sources = generate_polygon_sources(N, radius)
+    Z = np.zeros_like(X)
+    for sx, sy in sources:
+        r = np.sqrt((X - sx)**2 + (Y - sy)**2)
+        Z += A * np.sin(k * r - omega * t + phi)
+    fig = plt.figure(figsize=(10, 6))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='none')
+    ax.set_title(f'3D Interference Surface ({N} Sources)')
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.set_zlabel('Amplitude')
+    plt.show()
+
+# Show 3D pattern for pentagon
+plot_3d_surface(5)
+</code></pre>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<p><a href="https://colab.research.google.com/drive/1uLgyrHDDlL2_l9w8PafNX0HCOFjBmVYL?usp=sharing">visit website</a></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../../5%20Circuits/Problem_1/" title="Problem 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-<a class="btn btn-neutral float-right" href="../Problem_2/" title="Problem 2">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral float-left" href="../../2%20Gravity/Problem_3/" title="Problem 3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../../4%20Electromagnetism/Problem_1/" title="Problem 1">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
 <div role="contentinfo">
@@ -191,8 +352,8 @@
 </div>
 <div aria-label="Versions" class="rst-versions" role="note">
 <span class="rst-current-version" data-toggle="rst-current-version">
-<span><a href="../../5%20Circuits/Problem_1/" style="color: #fcfcfc">« Previous</a></span>
-<span><a href="../Problem_2/" style="color: #fcfcfc">Next »</a></span>
+<span><a href="../../2%20Gravity/Problem_3/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../../4%20Electromagnetism/Problem_1/" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script src="../../../js/jquery-3.6.0.min.js"></script>
