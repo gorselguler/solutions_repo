@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Problem 1 - Physics and Mathematics</title>
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_1.md";
+        var mkdocs_page_url = null;
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Physics and Mathematics
+        </a><div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../..">Introduction</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">1 Physics</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current">1 Mechanics</a>
+<ul class="current">
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#projectile-motion-analysis-of-range-dependence-on-launch-angle">Projectile Motion: Analysis of Range Dependence on Launch Angle</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2-analysis-of-the-range">2. Analysis of the Range</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#4-implementation-python-simulation">4. Implementation: Python Simulation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#5-discussion-on-limitations">5. Discussion on Limitations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">5 Circuits</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../5%20Circuits/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">6 Statistics</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Problem 2</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">7 Measurements</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../7%20Measurements/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">2 Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/1%20Linear_algebra/">Linear Algebra</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/2%20Analytic_geometry/">Analytic geometry</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/3%20Calculus/">Calculus</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">3 Discret Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal">1 Set Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_02%20Set_Theory/">Set Theory</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_03%20Relations/">Relations</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_04%20Functions/">Functions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">2 Number Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/2%20Number%20Theory%20and%20.../_05%20Combinatorics/">Combinatorics</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/2%20Number%20Theory%20and%20.../_08%20Number_Theory/">Number Theory</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">3 Recurrence and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_06%20Sequences_and_Series/">Sequences and Series</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_07%20Induction/">Induction</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_09%20Recurrence/">Recurrence</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">4 Graph Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/4%20Graph%20Theory%20and%20.../_10%20Graph_Theory/">Graph Theory</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">5 Logic</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/5%20Logic/_01%20Logic/">Logic</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Physics and Mathematics</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
+<li class="breadcrumb-item">1 Physics</li>
+<li class="breadcrumb-item">1 Mechanics</li>
+<li class="breadcrumb-item active">Problem 1</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="problem-1">Problem 1</h1>
+<h2 id="projectile-motion-analysis-of-range-dependence-on-launch-angle">Projectile Motion: Analysis of Range Dependence on Launch Angle</h2>
+<h3 id="1-theoretical-foundation"><strong>1. Theoretical Foundation</strong></h3>
+<p>Projectile motion is governed by Newton’s laws. Assuming no air resistance, the motion can be described using kinematic equations:</p>
+<ul>
+<li>Horizontal motion:</li>
+</ul>
+<div class="arithmatex">\[
+x = v_0 \cos(\theta) t
+\]</div>
+<ul>
+<li>Vertical motion:
+  $$
+  y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 
+  $$</li>
+</ul>
+<p>The total time of flight is found by solving for when the projectile returns to its initial height:</p>
+<p>$$
+ t_f = \frac{2 v_0 \sin(\theta)}{g} 
+ $$
+The horizontal range is given by:</p>
+<div class="arithmatex">\[
+R = \frac{v_0^2 \sin(2\theta)}{g} 
+\]</div>
+<h3 id="2-analysis-of-the-range"><strong>2. Analysis of the Range</strong></h3>
+<p>The horizontal range depends on:</p>
+<ul>
+<li><strong>Launch Angle (θ):</strong> The range is maximized at </li>
+</ul>
+<div class="arithmatex">\[
+ 45^\circ 
+ \]</div>
+<ul>
+<li>**Initial Velocity </li>
+</ul>
+<div class="arithmatex">\[
+( v_0 )
+\]</div>
+<p>:** Higher velocity increases range quadratically.</p>
+<ul>
+<li><strong>Gravitational Acceleration (g):</strong> A stronger gravitational field decreases range.</li>
+</ul>
+<h3 id="3-practical-applications"><strong>3. Practical Applications</strong></h3>
+<ul>
+<li><strong>Sports:</strong> Understanding ball trajectories in football and basketball.</li>
+<li><strong>Engineering:</strong> Designing projectile-based systems like rockets or artillery.</li>
+<li><strong>Astrophysics:</strong> Studying planetary motion under different gravity levels.</li>
+</ul>
+<h3 id="4-implementation-python-simulation"><strong>4. Implementation: Python Simulation</strong></h3>
+<p>We use Python to visualize how range varies with launch angle.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+def projectile_range(v0, g):
+    angles = np.linspace(0, 90, 100)  # Angles in degrees
+    angles_rad = np.radians(angles)   # Convert to radians
+    ranges = (v0**2 * np.sin(2 * angles_rad)) / g
+
+    plt.figure(figsize=(8,5))
+    plt.plot(angles, ranges, label=f'v0 = {v0} m/s')
+    plt.xlabel('Launch Angle (degrees)')
+    plt.ylabel('Range (m)')
+    plt.title('Projectile Range vs. Launch Angle')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+# Example parameters
+v0 = 20  # Initial velocity in m/s
+g = 9.81 # Gravity in m/s^2
+projectile_range(v0, g)
+</code></pre>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<h3 id="5-discussion-on-limitations"><strong>5. Discussion on Limitations</strong></h3>
+<ul>
+<li><strong>Air Resistance:</strong> In real scenarios, drag significantly reduces range.</li>
+<li><strong>Uneven Terrain:</strong> Changes in landing elevation affect results.</li>
+<li><strong>Wind Influence:</strong> Can alter trajectory unpredictably.</li>
+</ul>
+<h3 id="conclusion"><strong>Conclusion</strong></h3>
+<p>This analysis demonstrates the relationship between launch angle and range, emphasizing its significance in various real-world applications. Future studies can incorporate drag forces for more realistic modeling.</p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<h1 id="why-is-the-maximum-range-achieved-at-a-45-angle">🚀 Why is the Maximum Range Achieved at a 45° Angle?</h1>
+<h2 id="range-formula-and-maximum-point">📌 Range Formula and Maximum Point</h2>
+<p>The total horizontal distance (<strong>range</strong>) covered by a projectile depends on the launch angle and is given by:</p>
+<div class="arithmatex">\[
+R = \frac{v_0^2 \sin(2\theta)}{g}
+\]</div>
+<p>Where:
+- <strong>R</strong> = Range (total horizontal distance covered)
+- <strong>v₀</strong> = Initial velocity
+- <strong>θ</strong> = Launch angle
+- <strong>g</strong> = Gravitational acceleration
+- <strong>sin(2θ)</strong> = Function determining the impact of angle on range</p>
+<p>To achieve maximum range, <strong>the function sin(2θ) must be maximized</strong>. In mathematics, <strong>sin(x) reaches its maximum value when it equals 1</strong>, meaning:</p>
+<div class="arithmatex">\[
+\sin(2\theta) = 1 \Rightarrow 2\theta = 90
+\]</div>
+<p>From this:</p>
+<div class="arithmatex">\[
+\theta = 45
+\]</div>
+<p>🎯 <strong>Conclusion:</strong> <strong>The maximum range is achieved at a 45° launch angle!</strong></p>
+<hr/>
+<h2 id="why-are-lower-and-higher-angles-worse">🧐 Why Are Lower and Higher Angles Worse?</h2>
+<p>Let's analyze how a projectile behaves at different angles:</p>
+<h3 id="lower-angles-0-45">🔻 Lower Angles (0° - 45°)</h3>
+<ul>
+<li><strong>More horizontal velocity but weaker vertical motion.</strong></li>
+<li>The projectile falls quickly to the ground, reducing range.</li>
+<li>For example, <strong>a launch at 30° provides some range but falls short due to early descent.</strong></li>
+</ul>
+<h3 id="higher-angles-45-90">🔺 Higher Angles (45° - 90°)</h3>
+<ul>
+<li><strong>More vertical velocity but less horizontal velocity.</strong></li>
+<li>The projectile reaches a higher altitude but does not travel far.</li>
+<li>For instance, <strong>a launch at 60° results in a longer air time, but the horizontal distance is shorter due to reduced horizontal speed.</strong></li>
+</ul>
+<p>📌 <strong>The 45° angle provides the best balance!</strong></p>
+<hr/>
+<h2 id="interesting-and-fun-facts">🎭 Interesting and Fun Facts</h2>
+<h3 id="the-45-rule-in-sports">🎾 <strong>The 45° Rule in Sports</strong></h3>
+<ul>
+<li>In sports like football, basketball, or tennis, <strong>players aim for a 45° angle to maximize projectile distance</strong>.</li>
+<li>However, due to air resistance, an optimal angle in practice is usually around <strong>40° - 43°</strong>.</li>
+</ul>
+<h3 id="nasa-and-rocket-science">🚀 <strong>NASA and Rocket Science</strong></h3>
+<ul>
+<li>Space rockets <strong>are not launched at exactly 45°</strong> because they need to escape the atmosphere efficiently.</li>
+<li>However, <strong>artillery shells and short-range missiles</strong> often use the 45° angle for maximum range!</li>
+</ul>
+<h3 id="archery-and-ballistic-missiles">🏹 <strong>Archery and Ballistic Missiles</strong></h3>
+<ul>
+<li>Archers <strong>aim close to 45° when trying to achieve the longest possible shot</strong>.</li>
+<li>Military artillery <strong>uses this angle to maximize impact distance</strong>.</li>
+</ul>
+<hr/>
+<h2 id="python-simulation-effect-of-angle-on-range">📊 Python Simulation: Effect of Angle on Range</h2>
+<p>The following Python code calculates the range for different angles and plots the results:</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+def projectile_range(v0, g):
+    angles = np.linspace(0, 90, 100)
+    angles_rad = np.radians(angles)
+    ranges = (v0**2 * np.sin(2 * angles_rad)) / g
+
+    plt.figure(figsize=(8,5))
+    plt.plot(angles, ranges, label=f'v0 = {v0} m/s', color='b')
+    plt.axvline(45, color='r', linestyle='--', label='Maximum Range: 45°')
+    plt.xlabel('Launch Angle (degrees)')
+    plt.ylabel('Range (meters)')
+    plt.title('Projectile Range vs. Launch Angle')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+# Example parameters
+v0 = 20  # Initial velocity (m/s)
+g = 9.81 # Gravitational acceleration (m/s²)
+projectile_range(v0, g)
+</code></pre>
+<h3 id="what-will-the-graph-show">📈 What Will the Graph Show?</h3>
+<ul>
+<li><strong>X-axis</strong>: Launch angle (in degrees)</li>
+<li><strong>Y-axis</strong>: Range (in meters)</li>
+<li><strong>Red dashed line</strong>: Maximum range at 45°</li>
+<li><strong>Blue curve</strong>: Effect of angle on range</li>
+</ul>
+<hr/>
+<h2 id="conclusion_1">🚀 CONCLUSION</h2>
+<p>✅ <strong>The 45° angle is the ideal angle for maximum range!</strong>
+✅ <strong>It provides the best balance between horizontal and vertical velocity.</strong>
+✅ <strong>In real-world scenarios, air resistance can slightly modify the optimal angle.</strong>
+✅ <strong>Used in physics, sports, military engineering, and rocket science!</strong> 🎯🔥</p>
+<h2 id="yatay-hareket-horizontal-movement">Yatay Hareket / Horizontal Movement</h2>
+<ul>
+<li>If there is no friction, the speed remains constant.</li>
+</ul>
+<h2 id="dikey-hareket-vertical-movement">Dikey Hareket / Vertical Movement</h2>
+<ul>
+<li>Speed decreases due to gravity and then reverses.</li>
+</ul>
+<p>As a result, the object follows a parabolic path and falls to the ground after traveling a certain distance.</p>
+<p>In this work, we examine the relationship between the launch angle and the distance reached by the object.</p>
+<p>Our goal is to find out how far the object travels and discover which angle provides the best range.</p>
+<h3 id="the-important-factors-are">The important factors are:</h3>
+<ol>
+<li>Throw angle affects range!</li>
+<li>As speed increases, so does range.</li>
+<li>For best range, we should select forty-five degrees (<span class="arithmatex">\(45^\circ\)</span>).  </li>
+<li>The <span class="arithmatex">\(45^\circ\)</span> angle best balances both horizontal and vertical movement and provides the longest range.</li>
+</ol>
+<pre><code class="language-python">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+g = 9.81  # Gravitational acceleration (m/s^2)
+v0 = 800  # Bullet initial velocity (m/s)
+angles = np.arange(10, 21, 2)  # Shooting angles (between 10° and 20° with 2° increments)
+
+# Function to calculate range
+
+def calculate_range(v0, angle):
+    theta = np.radians(angle)
+    return (v0 ** 2) * np.sin(2 * theta) / g
+
+# Calculate range for given angles
+ranges = [calculate_range(v0, angle) for angle in angles]
+
+# Plot the graph
+
+
+
+plt.figure(figsize=(8, 5))
+plt.plot(angles, ranges, marker='o', linestyle='-', color='b', label='Bullet Range')
+plt.xlabel('Shooting Angle (°)')
+plt.ylabel('Range (m)')
+plt.title('Range vs. Shooting Angle')
+plt.legend()
+plt.grid()
+plt.show()
+
+</code></pre>
+<h3 id="differential-equations-of-bullet-motion">Differential Equations of Bullet Motion</h3>
+<p>Bullet motion can be modeled in two dimensions:</p>
+<ol>
+<li><strong>Horizontal motion:</strong></li>
+</ol>
+<p>$$
+    \frac{dx}{dt} = v_x = v_0 \cos(\theta) 
+    $$</p>
+<ol>
+<li><strong>Vertical motion:</strong></li>
+</ol>
+<p>$$
+    \frac{dy}{dt} = v_y 
+    $$</p>
+<p>$$
+    \frac{dv_y}{dt} = -g 
+    $$</p>
+<p>Where:
+-  x ) and <span class="arithmatex">\( y \)</span> are the position coordinates of the bullet.
+- <span class="arithmatex">\( v_x \)</span> and <span class="arithmatex">\( v_y \)</span> are the horizontal and vertical velocity components, respectively.
+- <span class="arithmatex">\( g \)</span> is the gravitational acceleration.
+- <span class="arithmatex">\( \theta \)</span> is the shooting angle.</p>
+<p>To solve these differential equations, numerical methods (such as the Euler method) can be used.</p>
+<pre><code class="language-python">
+import numpy as np
+import matplotlib.pyplot as plt
+
+def projectile_motion(v0, theta, h0, g=9.81, dt=0.01):
+    theta = np.radians(theta)
+    v0x = v0 * np.cos(theta)
+    v0y = v0 * np.sin(theta)
+
+    t_flight = (v0y + np.sqrt(v0y**2 + 2 * g * h0)) / g * 2
+    t = np.arange(0, t_flight, dt)
+
+    x = v0x * t
+    y = h0 + v0y * t - 0.5 * g * t**2
+    y = np.maximum(y, 0)  # Ensure it doesn't go below ground
+
+    return x, y
+
+# Define initial velocities, angles, and launch heights
+v0 = 50  # Initial velocity in m/s
+theta = 45  # Launch angle in degrees
+heights = [0, 10, 20]  # Different launch heights
+
+# Plot the projectile motion for different launch heights
+plt.figure(figsize=(8, 6))
+colors = ['red', 'purple', 'blue']
+
+for h, color in zip(heights, colors):
+    x, y = projectile_motion(v0, theta, h)
+    plt.plot(x, y, label=f"h0 = {h} m", color=color)
+
+plt.axhline(0, color='black', linewidth=1)  # Ground line
+plt.xlabel("Range (m)")
+plt.ylabel("Height (m)")
+plt.title("Projectile Motion at Different Initial Heights")
+plt.legend()
+plt.grid()
+plt.show()
+
+</code></pre>
+<p><img alt="alt text" src="../image-8.png"/></p>
+<pre><code class="language-python">
+import numpy as np
+import matplotlib.pyplot as plt
+
+def projectile_motion(v0, theta, g=9.81, dt=0.01):
+    """Compute projectile motion given initial velocity and angle."""
+    theta = np.radians(theta)
+    v0x = v0 * np.cos(theta)
+    v0y = v0 * np.sin(theta)
+
+    t_flight = (2 * v0y) / g
+    t = np.arange(0, t_flight, dt)
+
+    x = v0x * t
+    y = v0y * t - 0.5 * g * t**2
+
+    return x, y
+
+# Define initial velocities and angles for both plots
+velocities_a = [30, 40, 50]
+angles_a = [45, 45, 45]
+
+velocities_b = [50, 50, 50]
+angles_b = [15, 45, 75]
+
+# Create figure and subplots
+fig, axs = plt.subplots(2, 1, figsize=(8, 10))
+colors = ['red', 'purple', 'green']
+
+def plot_projectiles(ax, velocities, angles, colors):
+    for v0, theta, color in zip(velocities, angles, colors):
+        x, y = projectile_motion(v0, theta)
+        ax.plot(x, y, color=color, label=f'v0 = {v0} m/s, {theta}°')
+    ax.axhline(0, color='black', linewidth=1)  # Ground line
+    ax.set_xlabel("Range (m)")
+    ax.set_ylabel("Height (m)")
+    ax.legend()
+    ax.grid()
+
+# Plot (a)
+plot_projectiles(axs[0], velocities_a, angles_a, colors)
+axs[0].set_title("(a) Projectile motion with different velocities at 45°")
+
+# Plot (b)
+plot_projectiles(axs[1], velocities_b, angles_b, colors)
+axs[1].set_title("(b) Projectile motion with 50 m/s at different angles")
+
+plt.tight_layout()
+plt.show()
+
+</code></pre>
+<p><img alt="alt text" src="../image-7.png"/></p>
+<p><img alt="alt text" src="../image-10.png"/></p>
+<h2 id="my-colab">My Colab</h2>
+<p><a href="https://colab.research.google.com/drive/1AeApmcVpYZswniM9LacdcCTsymshHwa4?usp=sharing">visit website</a></p>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../../.." title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../Problem_2/" title="Problem 2">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../../.." style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../Problem_2/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../../..";</script>
+<script src="../../../js/theme_extra.js"></script>
+<script src="../../../js/theme.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="../../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>
