@@ -6,14 +6,14 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Problem 3 - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
-        var mkdocs_page_input_path = "1 Physics/6 Statistics/Problem_2.md";
+        var mkdocs_page_name = "Problem 3";
+        var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_3.md";
         var mkdocs_page_url = null;
       </script>
 <!--[if lt IE 9]>
@@ -52,13 +52,15 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal">2 Gravity</a>
-<ul>
-<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_1/">Problem 1</a>
+<li class="toctree-l1 current"><a class="reference internal current">2 Gravity</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_2/">Problem 2</a>
+<li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_3/">Problem 3</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 3</a>
+<ul class="current">
+</ul>
 </li>
 </ul>
 </li>
@@ -68,13 +70,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal current">6 Statistics</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1</a>
+<li class="toctree-l1"><a class="reference internal">6 Statistics</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Problem 1</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
-<ul class="current">
-</ul>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Problem 2</a>
 </li>
 </ul>
 </li>
@@ -150,8 +150,8 @@
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
-<li class="breadcrumb-item">6 Statistics</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item">2 Gravity</li>
+<li class="breadcrumb-item active">Problem 3</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -159,12 +159,114 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<h1 id="problem-3">Problem 3</h1>
+<h1 id="trajectories-of-a-freely-released-payload-near-earth"># Trajectories of a Freely Released Payload Near Earth</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The trajectory of an object released from a moving rocket depends on its initial velocity and the gravitational influence of Earth. By analyzing these trajectories, we can understand orbital insertion, reentry paths, or escape scenarios. This knowledge is essential in space mission planning, satellite deployment, and reentry vehicle design.</p>
+<hr/>
+<h2 id="physics-background">Physics Background</h2>
+<h3 id="newtons-law-of-gravitation">Newton's Law of Gravitation:</h3>
+<div class="arithmatex">\[
+F = \frac{GMm}{r^2} \Rightarrow a = \frac{GM}{r^2} 
+\]</div>
+<p>This acceleration acts towards the center of Earth.</p>
+<h3 id="types-of-trajectories">Types of Trajectories</h3>
+<ul>
+<li><strong>Circular Orbit</strong>: Object moves with constant speed in a circular path.</li>
+<li><strong>Elliptical Orbit</strong>: Object is bound to Earth but not at a constant distance.</li>
+<li><strong>Parabolic Escape</strong>: Minimum speed to escape Earth's gravity.</li>
+<li><strong>Hyperbolic Escape</strong>: Object escapes Earth with excess velocity.</li>
+<li><strong>Suborbital Trajectory</strong>: Falls back to Earth before completing an orbit.</li>
+</ul>
+<hr/>
+<h3 id="initial-conditions-and-solver">Initial Conditions and Solver</h3>
+<pre><code class="language-python"># Choose an altitude and initial velocity (vary this to simulate different cases)
+altitude = 300e3  # 300 km
+r0 = R_earth + altitude
+v_circular = np.sqrt(mu / r0)  # Circular orbital speed
+
+# Modify initial velocity to simulate different trajectories
+initial_conditions = {
+    'suborbital': [0, 0.7 * v_circular],
+    'circular': [0, v_circular],
+    'elliptical': [0, 1.1 * v_circular],
+    'escape': [0, np.sqrt(2) * v_circular],
+}
+
+fig, ax = plt.subplots(figsize=(8, 8))
+
+for label, vy0 in initial_conditions.items():
+    y0 = [r0, 0, 0, vy0]  # x, vx, y, vy
+    sol = solve_ivp(equations, [0, 10000], y0, t_eval=np.linspace(0, 10000, 5000))
+    x = sol.y[0]
+    y = sol.y[2]
+    ax.plot(x / 1e3, y / 1e3, label=label)
+
+# Earth
+earth = plt.Circle((0, 0), R_earth / 1e3, color='blue', alpha=0.3)
+ax.add_patch(earth)
+
+ax.set_xlabel('x (km)')
+ax.set_ylabel('y (km)')
+ax.set_title('Payload Trajectories near Earth')
+ax.set_aspect('equal')
+ax.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-8.png"/></p>
+<hr/>
+<h2 id="applications-in-space-missions">Applications in Space Missions</h2>
+<ul>
+<li><strong>Orbital Insertion</strong>: Matching circular or elliptical orbits for satellites.</li>
+<li><strong>Escape Trajectory</strong>: Interplanetary missions (e.g., to Mars).</li>
+<li><strong>Reentry Design</strong>: Predicting where a returning capsule will land.</li>
+</ul>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>By changing the initial velocity of a payload, we observe distinct paths that help classify motion near Earth. Simulating these paths enhances our understanding of celestial mechanics and supports mission-critical decisions in aerospace engineering.</p>
+<pre><code class="language-python">radii = np.linspace(R_earth, R_earth + 2e6, 500)
+v_orbit = np.sqrt(mu / radii) / 1e3      # km/s
+v_escape = np.sqrt(2 * mu / radii) / 1e3 # km/s
+
+plt.figure(figsize=(8, 5))
+plt.plot((radii - R_earth) / 1e3, v_orbit, label='Orbital Velocity')
+plt.plot((radii - R_earth) / 1e3, v_escape, label='Escape Velocity')
+plt.xlabel('Altitude (km)')
+plt.ylabel('Velocity (km/s)')
+plt.title('Velocity vs Altitude Near Earth')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<pre><code class="language-python">x = np.linspace(-2e7, 2e7, 40)
+y = np.linspace(-2e7, 2e7, 40)
+X, Y = np.meshgrid(x, y)
+R = np.sqrt(X**2 + Y**2)
+ax = -mu * X / R**3
+ay = -mu * Y / R**3
+
+plt.figure(figsize=(7, 7))
+plt.streamplot(X/1e6, Y/1e6, ax, ay, color=np.sqrt(ax**2 + ay**2), cmap='plasma')
+earth = plt.Circle((0, 0), R_earth / 1e6, color='blue', alpha=0.3)
+plt.gca().add_patch(earth)
+plt.xlabel('X (10⁶ m)')
+plt.ylabel('Y (10⁶ m)')
+plt.title('Gravitational Vector Field Around Earth')
+plt.grid(True)
+plt.axis('equal')
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-6.png"/></p>
+<p><a href="https://colab.research.google.com/drive/1sndCMzPXDamm9P4kyI4kwXrh5LwAy25c?usp=sharing">visit website</a></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../Problem_1/" title="Problem 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-<a class="btn btn-neutral float-right" href="../../7%20Measurements/Problem_1/" title="Problem 1">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral float-left" href="../Problem_2/" title="Problem 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../../5%20Circuits/Problem_1/" title="Problem 1">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
 <div role="contentinfo">
@@ -179,8 +281,8 @@
 </div>
 <div aria-label="Versions" class="rst-versions" role="note">
 <span class="rst-current-version" data-toggle="rst-current-version">
-<span><a href="../Problem_1/" style="color: #fcfcfc">« Previous</a></span>
-<span><a href="../../7%20Measurements/Problem_1/" style="color: #fcfcfc">Next »</a></span>
+<span><a href="../Problem_2/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../../5%20Circuits/Problem_1/" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script src="../../../js/jquery-3.6.0.min.js"></script>
