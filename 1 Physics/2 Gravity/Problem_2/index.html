@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Problem 2 - Physics and Mathematics</title>
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_2.md";
+        var mkdocs_page_url = null;
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Physics and Mathematics
+        </a><div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../..">Introduction</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">1 Physics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal">1 Mechanics</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_2/">Problem 2</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current">2 Gravity</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<ul class="current">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Problem_3/">Problem 3</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">3 Waves</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../3%20Waves/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">4 Electromagnetism</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4%20Electromagnetism/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">5 Circuits</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../5%20Circuits/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">6 Statistics</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Problem 2</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">7 Measurements</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../7%20Measurements/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">2 Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/1%20Linear_algebra/">Linear Algebra</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/2%20Analytic_geometry/">Analytic geometry</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/3%20Calculus/">Calculus</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">3 Discret Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal">1 Set Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_02%20Set_Theory/">Set Theory</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_03%20Relations/">Relations</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_04%20Functions/">Functions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">2 Number Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/2%20Number%20Theory%20and%20.../_05%20Combinatorics/">Combinatorics</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/2%20Number%20Theory%20and%20.../_08%20Number_Theory/">Number Theory</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">3 Recurrence and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_06%20Sequences_and_Series/">Sequences and Series</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_07%20Induction/">Induction</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_09%20Recurrence/">Recurrence</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">4 Graph Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/4%20Graph%20Theory%20and%20.../_10%20Graph_Theory/">Graph Theory</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">5 Logic</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/5%20Logic/_01%20Logic/">Logic</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Physics and Mathematics</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
+<li class="breadcrumb-item">1 Physics</li>
+<li class="breadcrumb-item">2 Gravity</li>
+<li class="breadcrumb-item active">Problem 2</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="problem-2">Problem 2</h1>
+<h1 id="escape-velocities-and-cosmic-velocities"># Escape Velocities and Cosmic Velocities</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Understanding the concept of escape velocity is essential in astrophysics and space engineering. It defines the minimum speed an object must reach to break free from a celestial body's gravitational influence. The three cosmic velocities categorize different thresholds: reaching orbit (first), escaping the planet (second), and escaping the entire star system (third). These concepts guide space missions, from launching satellites to interstellar exploration.</p>
+<hr/>
+<h2 id="definitions">Definitions</h2>
+<ul>
+<li><strong>First Cosmic Velocity (v₁)</strong>: Minimum velocity to maintain a stable circular orbit around a body.</li>
+</ul>
+<p>$$
+   v_1 = \sqrt{\frac{GM}{r}} 
+   $$</p>
+<ul>
+<li><strong>Second Cosmic Velocity (v₂)</strong>: Minimum velocity to escape the gravitational pull of a body (escape velocity).</li>
+</ul>
+<p>$$
+   v_2 = \sqrt{2} \cdot v_1 = \sqrt{\frac{2GM}{r}} 
+   $$</p>
+<ul>
+<li><strong>Third Cosmic Velocity (v₃)</strong>: Minimum velocity to escape the gravitational influence of the entire solar system from Earth's surface, assuming the spacecraft is not assisted by other celestial bodies.</li>
+</ul>
+<p>$$
+   v_3 \approx 16.7 \text{ km/s (from Earth)} 
+   $$</p>
+<hr/>
+<h2 id="mathematical-derivation">Mathematical Derivation</h2>
+<p>Starting with energy conservation:</p>
+<p>Total energy at escape = 0:</p>
+<div class="arithmatex">\[
+ \frac{1}{2}mv^2 - \frac{GMm}{r} = 0 \Rightarrow v = \sqrt{\frac{2GM}{r}} 
+ \]</div>
+<p>For orbital velocity:</p>
+<div class="arithmatex">\[
+ F_{gravity} = F_{centripetal} \Rightarrow \frac{GMm}{r^2} = \frac{mv^2}{r} \Rightarrow v = \sqrt{\frac{GM}{r}} 
+ \]</div>
+<hr/>
+<h2 id="python-calculations-and-visualizations">Python Calculations and Visualizations</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Gravitational constant
+G = 6.67430e-11  # m^3 kg^-1 s^-2
+
+# Define planetary data (mass in kg, radius in meters)
+bodies = {
+    'Earth': {'mass': 5.972e24, 'radius': 6371e3},
+    'Mars': {'mass': 6.417e23, 'radius': 3389.5e3},
+    'Jupiter': {'mass': 1.898e27, 'radius': 69911e3},
+}
+
+# Calculate and store velocities
+velocities = {}
+for body, data in bodies.items():
+    M = data['mass']
+    r = data['radius']
+    v1 = np.sqrt(G * M / r)
+    v2 = np.sqrt(2) * v1
+    v3 = 16.7e3 if body == 'Earth' else np.nan  # third cosmic velocity approx from Earth
+    velocities[body] = {'v1': v1, 'v2': v2, 'v3': v3}
+
+# Display
+for body in velocities:
+    v = velocities[body]
+    print(f"{body}:")
+    print(f"  First Cosmic Velocity (v1): {v['v1'] / 1e3:.2f} km/s")
+    print(f"  Second Cosmic Velocity (v2): {v['v2'] / 1e3:.2f} km/s")
+    if not np.isnan(v['v3']):
+        print(f"  Third Cosmic Velocity (v3): {v['v3'] / 1e3:.2f} km/s")
+    print()
+</code></pre>
+<p>Earth:
+  First Cosmic Velocity (v1): 7.91 km/s
+  Second Cosmic Velocity (v2): 11.18 km/s
+  Third Cosmic Velocity (v3): 16.70 km/s</p>
+<p>Mars:
+  First Cosmic Velocity (v1): 3.55 km/s
+  Second Cosmic Velocity (v2): 5.02 km/s</p>
+<p>Jupiter:
+  First Cosmic Velocity (v1): 42.07 km/s
+  Second Cosmic Velocity (v2): 59.49 km/s</p>
+<h3 id="bar-chart-of-velocities">Bar Chart of Velocities</h3>
+<pre><code class="language-python"># Bar chart
+labels = list(bodies.keys())
+x = np.arange(len(labels))
+width = 0.25
+
+v1_vals = [velocities[body]['v1'] / 1e3 for body in labels]
+v2_vals = [velocities[body]['v2'] / 1e3 for body in labels]
+v3_vals = [velocities[body]['v3'] / 1e3 if not np.isnan(velocities[body]['v3']) else 0 for body in labels]
+
+fig, ax = plt.subplots(figsize=(10, 6))
+rects1 = ax.bar(x - width, v1_vals, width, label='v₁ (Orbit)')
+rects2 = ax.bar(x, v2_vals, width, label='v₂ (Escape)')
+rects3 = ax.bar(x + width, v3_vals, width, label='v₃ (Solar Escape)')
+
+ax.set_ylabel('Velocity (km/s)')
+ax.set_title('Cosmic Velocities for Celestial Bodies')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+ax.grid(True)
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p>X-axis: Planet names (Earth, Mars, Jupiter)</p>
+<p>Y-axis: Velocities in km/s</p>
+<p>Three bars for each body:</p>
+<p>v₁ (Orbit): First cosmic velocity (to orbit the planet)</p>
+<p>v₂ (Escape): Second cosmic velocity (to escape the planet’s gravity)</p>
+<p>v₃ (Solar Escape): Third cosmic velocity (escape the Solar System from that planet) – only Earth has a defined value</p>
+<p>For example:</p>
+<p>Earth will show 7.91 (v₁), 11.18 (v₂), 16.70 (v₃)</p>
+<p>Mars will show 3.55 (v₁), 5.02 (v₂), 0 (v₃ bar won't be visible)</p>
+<p>Jupiter will show 42.07 (v₁), 59.49 (v₂), 0 (v₃ bar won't be visible)</p>
+<hr/>
+<h2 id="importance-in-space-exploration">Importance in Space Exploration</h2>
+<ul>
+<li><strong>First Cosmic Velocity</strong>: Required for satellites to maintain orbit (e.g., ISS).</li>
+<li><strong>Second Cosmic Velocity</strong>: Determines launch speed for interplanetary missions (e.g., Mars rovers).</li>
+<li><strong>Third Cosmic Velocity</strong>: Relevant for missions aiming to leave the Solar System (e.g., Voyager 1).</li>
+</ul>
+<p>These thresholds are crucial for mission planning, rocket fuel estimation, and interplanetary navigation.</p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>Cosmic velocities define the fundamental speed requirements for space travel. Understanding and calculating them is vital for launching and navigating spacecraft, paving the way for deeper space exploration.</p>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
+
+# Velocities in km/s (from previous calculations)
+velocities = {
+    'Earth': {'v1': 7.91, 'v2': 11.2, 'v3': 16.7},
+    'Mars': {'v1': 3.55, 'v2': 5.03, 'v3': 0},  # v3 not defined
+    'Jupiter': {'v1': 42.0, 'v2': 59.5, 'v3': 0},  # v3 not defined
+}
+
+labels = list(velocities.keys())
+x = np.arange(len(labels))
+width = 0.25
+
+v1_vals = [velocities[body]['v1'] for body in labels]
+v2_vals = [velocities[body]['v2'] for body in labels]
+v3_vals = [velocities[body]['v3'] for body in labels]
+
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.bar(x - width, v1_vals, width, label='v₁ (Orbit)', color='skyblue')
+ax.bar(x, v2_vals, width, label='v₂ (Escape)', color='salmon')
+ax.bar(x + width, v3_vals, width, label='v₃ (Solar Escape)', color='gold')
+
+ax.set_ylabel('Velocity (km/s)')
+ax.set_title('Cosmic Velocities for Earth, Mars, Jupiter')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+ax.grid(True, linestyle='--', alpha=0.6)
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<pre><code class="language-python">G = 6.67430e-11
+mass_earth = 5.972e24  # kg
+
+radii = np.linspace(1e6, 1e8, 500)
+v_escape = np.sqrt(2 * G * mass_earth / radii) / 1e3  # km/s
+
+plt.figure(figsize=(8, 5))
+plt.plot(radii / 1e6, v_escape, color='purple')
+plt.xlabel('Radius from Center (10⁶ m)')
+plt.ylabel('Escape Velocity (km/s)')
+plt.title('Escape Velocity vs Radius from Earth-like Planet')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<pre><code class="language-python">import matplotlib.patches as patches
+
+fig, ax = plt.subplots(figsize=(8, 3))
+ax.arrow(0, 0.5, 2, 0, head_width=0.2, head_length=0.3, fc='blue', ec='blue')
+ax.arrow(0, 1.5, 3, 0, head_width=0.2, head_length=0.3, fc='red', ec='red')
+ax.arrow(0, 2.5, 4.5, 0, head_width=0.2, head_length=0.3, fc='green', ec='green')
+
+ax.text(2.1, 0.4, 'v₁ (Orbit)', color='blue')
+ax.text(3.2, 1.4, 'v₂ (Escape)', color='red')
+ax.text(4.7, 2.4, 'v₃ (Solar Escape)', color='green')
+
+ax.set_xlim(0, 6)
+ax.set_ylim(0, 3.5)
+ax.axis('off')
+ax.set_title('Conceptual Diagram of Cosmic Velocities')
+plt.tight_layout()
+plt.show()
+</code></pre>
+<p><img alt="alt text" src="../image-4.png"/></p>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../Problem_1/" title="Problem 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../Problem_3/" title="Problem 3">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../Problem_1/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../Problem_3/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../../..";</script>
+<script src="../../../js/theme_extra.js"></script>
+<script src="../../../js/theme.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="../../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>

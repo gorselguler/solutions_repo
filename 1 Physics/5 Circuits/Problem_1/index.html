@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Problem 1 - Physics and Mathematics</title>
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_input_path = "1 Physics/5 Circuits/Problem_1.md";
+        var mkdocs_page_url = null;
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Physics and Mathematics
+        </a><div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../..">Introduction</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">1 Physics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal">1 Mechanics</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_2/">Problem 2</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">2 Gravity</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_2/">Problem 2</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../2%20Gravity/Problem_3/">Problem 3</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">3 Waves</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../3%20Waves/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">4 Electromagnetism</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4%20Electromagnetism/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current">5 Circuits</a>
+<ul class="current">
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<ul class="current">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">6 Statistics</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Problem 1</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Problem 2</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">7 Measurements</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../7%20Measurements/Problem_1/">Problem 1</a>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">2 Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/1%20Linear_algebra/">Linear Algebra</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/2%20Analytic_geometry/">Analytic geometry</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2%20Mathematics/3%20Calculus/">Calculus</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">3 Discret Mathematics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal">1 Set Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_02%20Set_Theory/">Set Theory</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_03%20Relations/">Relations</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/1%20Set%20Theory%20and%20.../_04%20Functions/">Functions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">2 Number Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/2%20Number%20Theory%20and%20.../_05%20Combinatorics/">Combinatorics</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/2%20Number%20Theory%20and%20.../_08%20Number_Theory/">Number Theory</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">3 Recurrence and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_06%20Sequences_and_Series/">Sequences and Series</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_07%20Induction/">Induction</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/3%20Recurrence%20and%20.../_09%20Recurrence/">Recurrence</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">4 Graph Theory and ...</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/4%20Graph%20Theory%20and%20.../_10%20Graph_Theory/">Graph Theory</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal">5 Logic</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../3%20Discret_Mathematics/5%20Logic/_01%20Logic/">Logic</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Physics and Mathematics</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
+<li class="breadcrumb-item">1 Physics</li>
+<li class="breadcrumb-item">5 Circuits</li>
+<li class="breadcrumb-item active">Problem 1</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="problem-1">Problem 1</h1>
+<h1 id="equivalent-resistance-using-graph-theory">Equivalent Resistance Using Graph Theory</h1>
+<p>Motivation:
+Calculating the equivalent resistance in an electrical circuit is a fundamental task in electrical engineering and physics. While traditional methods involve step-by-step application of series and parallel resistor rules, graph theory offers a more systematic approach for handling complex resistor networks. By representing the circuit as a graph, where nodes are junctions and edges represent resistors, we can simplify the process of finding the equivalent resistance, especially in circuits with complex or nested configurations.</p>
+<p>Algorithm Overview:
+The algorithm calculates the equivalent resistance in a circuit by reducing the graph iteratively. The key steps involve:</p>
+<p>Identifying Series Connections: Resistors connected end-to-end (in series) can be replaced by a single equivalent resistor, where the total resistance is the sum of individual resistances.</p>
+<p>Identifying Parallel Connections: Resistors connected in parallel can be replaced by an equivalent resistor using the parallel resistance formula:</p>
+<p>𝑅
+eq
+=
+(
+∑
+1
+𝑅
+𝑖
+)
+−
+1
+R 
+eq
+​
+ =(∑ 
+R 
+i
+​</p>
+<p>1
+​
+ ) 
+−1</p>
+<p>Iterative Reduction: The algorithm simplifies the graph by detecting and combining series and parallel resistors until only one edge (the equivalent resistance) remains.</p>
+<p>Algorithm Steps:
+Input: A graph representing the circuit, where each node is a junction and each edge is a resistor with a resistance value.</p>
+<p>Series and Parallel Reduction:</p>
+<p>For series resistors, combine their resistances by adding them.</p>
+<pre><code class="language-python">def series_circuit(*resistances):
+    """
+    Calculate the equivalent resistance for resistors in series.
+    :param resistances: List of resistor values in series.
+    :return: Equivalent resistance
+    """
+    return sum(resistances)
+
+# Example for A-B-C in series
+resistance_series = series_circuit(5, 10)  # A–B: 5Ω, B–C: 10Ω
+print(f"Equivalent resistance for series circuit: {resistance_series} Ω")
+</code></pre>
+<p>Equivalent resistance for series circuit: 15 Ω</p>
+<p>For parallel resistors, use the parallel formula to compute the equivalent resistance.</p>
+<pre><code class="language-python">def parallel_circuit(*resistances):
+    """
+    Calculate the equivalent resistance for resistors in parallel.
+    :param resistances: List of resistor values in parallel.
+    :return: Equivalent resistance
+    """
+    inverse_sum = sum(1 / r for r in resistances)
+    return 1 / inverse_sum
+
+# Example for triangle circuit: A–B = 6Ω, A–C = 6Ω, B–C = 3Ω
+resistance_parallel = parallel_circuit(6, 6, 3)  # Resistors in parallel
+print(f"Equivalent resistance for parallel circuit: {resistance_parallel:.2f} Ω")
+</code></pre>
+<p>Equivalent resistance for parallel circuit: 1.50 Ω</p>
+<p>Graph Update:</p>
+<p>After combining resistors, update the graph by replacing the combined resistors with their equivalent resistance, removing the individual resistors.</p>
+<p>Repeat: Continue reducing the graph until there is only one remaining edge, which represents the equivalent resistance of the entire circuit.</p>
+<p>Output: The equivalent resistance of the circuit.</p>
+<p>Pseudocode for Equivalent Resistance Calculation:
+plaintext
+Kopyala
+Düzenle
+function calculate_equivalent_resistance(graph):
+    while graph has more than one resistor:
+        // Step 1: Identify and combine series resistors
+        for each pair of nodes u and v connected by resistors:
+            if u and v are in series:
+                R_series = sum of resistances of connected resistors
+                replace u-v connection with R_series in the graph</p>
+<pre><code>    // Step 2: Identify and combine parallel resistors
+    for each pair of nodes u and v connected by resistors:
+        if u and v are in parallel:
+            R_parallel = 1 / (1/R1 + 1/R2 + ...)
+            replace u-v connection with R_parallel in the graph
+
+    // Repeat until only one resistor remains in the graph
+
+return the final equivalent resistance
+</code></pre>
+<p>Explanation:
+Series Connection: Resistors in series share a single path, so their total resistance is the sum of the individual resistances:</p>
+<p>𝑅
+eq
+=
+𝑅
+1
++
+𝑅
+2
++
+⋯
+R 
+eq
+​
+ =R 
+1
+​
+ +R 
+2
+​
+ +⋯
+Parallel Connection: Resistors in parallel share two nodes and can be reduced using the formula:</p>
+<p>1
+𝑅
+eq
+=
+1
+𝑅
+1
++
+1
+𝑅
+2
++
+⋯
+R 
+eq
+​</p>
+<p>1
+​
+ = 
+R 
+1
+​</p>
+<p>1
+​
+ + 
+R 
+2
+​</p>
+<p>1
+​
+ +⋯
+For two resistors in parallel:</p>
+<p>𝑅
+eq
+=
+𝑅
+1
+⋅
+𝑅
+2
+𝑅
+1
++
+𝑅
+2
+R 
+eq
+​
+ = 
+R 
+1
+​
+ +R 
+2
+​</p>
+<p>R 
+1
+​
+ ⋅R 
+2
+​</p>
+<p>​</p>
+<p>Iterative Reduction:</p>
+<p>At each iteration, identify series or parallel connections and replace them with their equivalent resistances.</p>
+<p>The graph is updated to reflect the new resistor configuration after each reduction.</p>
+<p>This process continues until only one equivalent resistor remains.</p>
+<p>Handling Nested Configurations:</p>
+<p>Nested series and parallel configurations are handled by detecting combinations of series and parallel connections that can be simplified. After reducing one combination, the graph is re-evaluated to check if new series or parallel combinations appear due to the simplification.</p>
+<p>Complex Circuits:</p>
+<p>For circuits with multiple cycles and branches, the algorithm systematically reduces the graph while maintaining the relationships between resistors. Even in complex circuits, the algorithm ensures that each reduction step brings the graph closer to a single equivalent resistor.</p>
+<p>Example Inputs:
+Example 1: Simple Series Circuit
+Given a simple series circuit:</p>
+<p>css
+Kopyala
+Düzenle
+A -- 2Ω -- B -- 3Ω -- C
+The algorithm detects that resistors between A and B, and B and C, are in series.</p>
+<p>The equivalent resistance between A and C is:</p>
+<p>𝑅
+eq
+=
+2
+Ω
++
+3
+Ω
+=
+5
+Ω
+R 
+eq
+​
+ =2Ω+3Ω=5Ω
+Example 2: Simple Parallel Circuit
+Given a simple parallel circuit:</p>
+<p>less
+Kopyala
+Düzenle
+A -- 2Ω --+-- C
+          |
+          3Ω
+          |
+          B
+The algorithm detects that resistors between A and C, and C and B, are in parallel.</p>
+<p>The equivalent resistance is:</p>
+<p>𝑅
+eq
+=
+2
+Ω
+×
+3
+Ω
+2
+Ω
++
+3
+Ω
+=
+1.2
+Ω
+R 
+eq
+​
+ = 
+2Ω+3Ω
+2Ω×3Ω
+​
+ =1.2Ω
+Example 3: Nested Series and Parallel
+Given a nested circuit:</p>
+<p>less
+Kopyala
+Düzenle
+A -- 2Ω --+-- B -- 4Ω --+-- C
+          |              |
+          3Ω             6Ω
+          |              |
+          +--------------+
+First, combine the resistors between B and C (which are in parallel):</p>
+<p>𝑅
+BC
+=
+4
+Ω
+×
+6
+Ω
+4
+Ω
++
+6
+Ω
+=
+2.4
+Ω
+R 
+BC
+​
+ = 
+4Ω+6Ω
+4Ω×6Ω
+​
+ =2.4Ω
+Now, combine the resistors between A and B (in series with 3Ω and 2.4Ω):</p>
+<p>𝑅
+AB
+=
+3
+Ω
++
+2.4
+Ω
+=
+5.4
+Ω
+R 
+AB
+​
+ =3Ω+2.4Ω=5.4Ω
+Finally, combine the remaining series resistors A to C:</p>
+<p>𝑅
+eq
+=
+2
+Ω
++
+5.4
+Ω
+=
+7.4
+Ω
+R 
+eq
+​
+ =2Ω+5.4Ω=7.4Ω
+Algorithm Efficiency:
+Time Complexity:</p>
+<p>The algorithm processes each edge of the graph multiple times. Each iteration reduces the number of resistors by merging series or parallel connections.</p>
+<p>In the worst case, the complexity can be 
+𝑂
+(
+𝐸
+)
+O(E), where 
+𝐸
+E is the number of edges (resistors) in the graph.</p>
+<p>Space Complexity:</p>
+<p>The space complexity is 
+𝑂
+(
+𝑉
++
+𝐸
+)
+O(V+E), where 
+𝑉
+V is the number of nodes (junctions) and 
+𝐸
+E is the number of edges (resistors). The graph's adjacency list is stored in memory.</p>
+<p>Potential Improvements:</p>
+<p>Optimized Parallelism: In circuits with many parallel paths, additional optimizations can be applied to detect and combine parallel resistors more efficiently.</p>
+<p>Graph Traversal: Depth-First Search (DFS) or Breadth-First Search (BFS) could be used to identify cycles and more complex subgraphs that might offer faster reduction.</p>
+<p>Caching Subgraphs: Caching intermediate results for subgraphs could improve efficiency for circuits with repeated substructures.</p>
+<p>Conclusion:
+Using graph theory to calculate equivalent resistance provides a structured, algorithmic way to analyze circuits. This approach can handle complex configurations, including nested series and parallel resistors, making it ideal for circuit analysis and simulation. The iterative graph simplification process ensures that the algorithm is scalable and efficient, even for large circuits.</p>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../../4%20Electromagnetism/Problem_1/" title="Problem 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../../6%20Statistics/Problem_1/" title="Problem 1">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href="../../4%20Electromagnetism/Problem_1/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../../6%20Statistics/Problem_1/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../../..";</script>
+<script src="../../../js/theme_extra.js"></script>
+<script src="../../../js/theme.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="../../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>
