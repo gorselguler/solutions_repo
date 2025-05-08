@@ -121,11 +121,11 @@ $$
 \theta = 45
 $$
 
-🎯 **Conclusion:** **The maximum range is achieved at a 45° launch angle!**
+ **Conclusion:** **The maximum range is achieved at a 45° launch angle!**
 
 ---
 
-## 🧐 Why Are Lower and Higher Angles Worse?
+##  Why Are Lower and Higher Angles Worse?
 Let's analyze how a projectile behaves at different angles:
 
 ### 🔻 Lower Angles (0° - 45°)
@@ -142,23 +142,23 @@ Let's analyze how a projectile behaves at different angles:
 
 ---
 
-## 🎭 Interesting and Fun Facts
+##  Interesting and Fun Facts
 
-### 🎾 **The 45° Rule in Sports**
+###  **The 45° Rule in Sports**
 - In sports like football, basketball, or tennis, **players aim for a 45° angle to maximize projectile distance**.
 - However, due to air resistance, an optimal angle in practice is usually around **40° - 43°**.
 
-### 🚀 **NASA and Rocket Science**
+###  **NASA and Rocket Science**
 - Space rockets **are not launched at exactly 45°** because they need to escape the atmosphere efficiently.
 - However, **artillery shells and short-range missiles** often use the 45° angle for maximum range!
 
-### 🏹 **Archery and Ballistic Missiles**
+###  **Archery and Ballistic Missiles**
 - Archers **aim close to 45° when trying to achieve the longest possible shot**.
 - Military artillery **uses this angle to maximize impact distance**.
 
 ---
 
-## 📊 Python Simulation: Effect of Angle on Range
+##  Python Simulation: Effect of Angle on Range
 The following Python code calculates the range for different angles and plots the results:
 
 ```python
@@ -195,11 +195,11 @@ projectile_range(v0, g)
 
 ---
 
-## 🚀 CONCLUSION
-✅ **The 45° angle is the ideal angle for maximum range!**
-✅ **It provides the best balance between horizontal and vertical velocity.**
-✅ **In real-world scenarios, air resistance can slightly modify the optimal angle.**
-✅ **Used in physics, sports, military engineering, and rocket science!** 🎯🔥
+##  CONCLUSION
+ **The 45° angle is the ideal angle for maximum range!**
+ **It provides the best balance between horizontal and vertical velocity.**
+ **In real-world scenarios, air resistance can slightly modify the optimal angle.**
+ **Used in physics, sports, military engineering, and rocket science!** 🎯🔥
 
 
 
