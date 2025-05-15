@@ -177,3 +177,101 @@ plt.tight_layout()
 plt.show()
 ```
 
+## 📐 Deriving Masses Using Kepler’s Law
+# 🌌 Kepler’s Third Law: Deriving the Mass of Earth and the Sun
+
+## ⚙️ Kepler’s Third Law (Circular Orbits)
+
+Starting from Newton’s law of gravitation and centripetal force:
+
+$$
+\frac{GMm}{r^2} = \frac{mv^2}{r}
+$$
+
+Solving for orbital velocity:
+
+$$
+v = \sqrt{\frac{GM}{r}}
+$$
+
+Orbital period:
+
+$$
+T = \frac{2\pi r}{v} = 2\pi \sqrt{\frac{r^3}{GM}}
+$$
+
+Squaring both sides:
+
+$$
+T^2 = \frac{4\pi^2}{GM} r^3
+$$
+
+Rearranging to solve for the central mass $M$:
+
+$$
+M = \frac{4\pi^2 r^3}{G T^2}
+$$
+
+---
+
+## 🌍 1. Deriving Earth's Mass (Using the Moon’s Orbit)
+
+**Given:**
+
+- Orbital radius of the Moon:  
+  $$ r = 384{,}400 \times 10^3 \, \text{m} $$
+- Orbital period of the Moon:  
+  $$ T = 27.3 \times 24 \times 3600 \, \text{s} $$
+- Gravitational constant:  
+  $$ G = 6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $$
+
+**Calculation:**
+
+$$
+M_{\text{Earth}} = \frac{4\pi^2 r^3}{G T^2}
+$$
+
+**Result:**
+
+$$
+M_{\text{Earth}} \approx 5.97 \times 10^{24} \, \text{kg}
+$$
+
+---
+
+## ☀️ 2. Deriving the Sun’s Mass (Using Earth’s Orbit)
+
+**Given:**
+
+- Orbital radius of Earth:  
+  $$ r = 1.496 \times 10^{11} \, \text{m} $$
+- Orbital period of Earth:  
+  $$ T = 365.25 \times 24 \times 3600 \, \text{s} $$
+- Same gravitational constant $G$
+
+**Calculation:**
+
+$$
+M_{\text{Sun}} = \frac{4\pi^2 r^3}{G T^2}
+$$
+
+**Result:**
+
+$$
+M_{\text{Sun}} \approx 1.99 \times 10^{30} \, \text{kg}
+$$
+
+---
+
+## ✅ Summary Table
+
+| Celestial Body | Orbital Radius ($r$)         | Orbital Period ($T$)         | Calculated Mass ($M$) |
+|----------------|-------------------------------|-------------------------------|------------------------|
+| Earth (via Moon) | $3.844 \times 10^8$ m        | 27.3 days                     | $5.97 \times 10^{24}$ kg |
+| Sun (via Earth) | $1.496 \times 10^{11}$ m     | 365.25 days                   | $1.99 \times 10^{30}$ kg |
+
+---
+
+Kepler’s Third Law, when combined with Newton’s law of gravitation, allows us to determine the mass of celestial bodies from orbital data. This fundamental principle underpins modern astrophysics and orbital mechanics.
+
+
