@@ -63,7 +63,7 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
-
+![Trajectory Image](image69.png)
 ![alt text](image-8.png)
 
 ---
