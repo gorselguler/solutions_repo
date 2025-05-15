@@ -190,4 +190,26 @@ plot_3d_surface(5)
 | ![N=1](interference_N1.gif) | ![N=2](interference_N2.gif) | ![N=3](interference_N3.gif) | ![N=4](interference_N4.gif) | ![N=5](interference_N5.gif) |
 
 ---
+---
 
+## Interference Animations
+
+<p align="center">
+  <img src="interference_N1.gif" width="500">
+</p>
+
+<p align="center">
+  <img src="interference_N2.gif" width="500">
+</p>
+
+<p align="center">
+  <img src="interference_N3.gif" width="500">
+</p>
+
+<p align="center">
+  <img src="interference_N4.gif" width="500">
+</p>
+
+<p align="center">
+  <img src="interference_N5.gif" width="500">
+</p>
