@@ -317,6 +317,94 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 </code></pre>
+<h2 id="deriving-masses-using-keplers-law">📐 Deriving Masses Using Kepler’s Law</h2>
+<h1 id="keplers-third-law-deriving-the-mass-of-earth-and-the-sun">🌌 Kepler’s Third Law: Deriving the Mass of Earth and the Sun</h1>
+<h2 id="keplers-third-law-circular-orbits">⚙️ Kepler’s Third Law (Circular Orbits)</h2>
+<p>Starting from Newton’s law of gravitation and centripetal force:</p>
+<div class="arithmatex">\[
+\frac{GMm}{r^2} = \frac{mv^2}{r}
+\]</div>
+<p>Solving for orbital velocity:</p>
+<div class="arithmatex">\[
+v = \sqrt{\frac{GM}{r}}
+\]</div>
+<p>Orbital period:</p>
+<div class="arithmatex">\[
+T = \frac{2\pi r}{v} = 2\pi \sqrt{\frac{r^3}{GM}}
+\]</div>
+<p>Squaring both sides:</p>
+<div class="arithmatex">\[
+T^2 = \frac{4\pi^2}{GM} r^3
+\]</div>
+<p>Rearranging to solve for the central mass <span class="arithmatex">\(M\)</span>:</p>
+<div class="arithmatex">\[
+M = \frac{4\pi^2 r^3}{G T^2}
+\]</div>
+<hr/>
+<h2 id="1-deriving-earths-mass-using-the-moons-orbit">🌍 1. Deriving Earth's Mass (Using the Moon’s Orbit)</h2>
+<p><strong>Given:</strong></p>
+<ul>
+<li>Orbital radius of the Moon:<br/>
+  $$ r = 384{,}400 \times 10^3 \, \text{m} $$</li>
+<li>Orbital period of the Moon:<br/>
+  $$ T = 27.3 \times 24 \times 3600 \, \text{s} $$</li>
+<li>Gravitational constant:<br/>
+  $$ G = 6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $$</li>
+</ul>
+<p><strong>Calculation:</strong></p>
+<div class="arithmatex">\[
+M_{\text{Earth}} = \frac{4\pi^2 r^3}{G T^2}
+\]</div>
+<p><strong>Result:</strong></p>
+<div class="arithmatex">\[
+M_{\text{Earth}} \approx 5.97 \times 10^{24} \, \text{kg}
+\]</div>
+<hr/>
+<h2 id="2-deriving-the-suns-mass-using-earths-orbit">☀️ 2. Deriving the Sun’s Mass (Using Earth’s Orbit)</h2>
+<p><strong>Given:</strong></p>
+<ul>
+<li>Orbital radius of Earth:<br/>
+  $$ r = 1.496 \times 10^{11} \, \text{m} $$</li>
+<li>Orbital period of Earth:<br/>
+  $$ T = 365.25 \times 24 \times 3600 \, \text{s} $$</li>
+<li>Same gravitational constant <span class="arithmatex">\(G\)</span></li>
+</ul>
+<p><strong>Calculation:</strong></p>
+<div class="arithmatex">\[
+M_{\text{Sun}} = \frac{4\pi^2 r^3}{G T^2}
+\]</div>
+<p><strong>Result:</strong></p>
+<div class="arithmatex">\[
+M_{\text{Sun}} \approx 1.99 \times 10^{30} \, \text{kg}
+\]</div>
+<hr/>
+<h2 id="summary-table">✅ Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Celestial Body</th>
+<th>Orbital Radius (<span class="arithmatex">\(r\)</span>)</th>
+<th>Orbital Period (<span class="arithmatex">\(T\)</span>)</th>
+<th>Calculated Mass (<span class="arithmatex">\(M\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earth (via Moon)</td>
+<td><span class="arithmatex">\(3.844 \times 10^8\)</span> m</td>
+<td>27.3 days</td>
+<td><span class="arithmatex">\(5.97 \times 10^{24}\)</span> kg</td>
+</tr>
+<tr>
+<td>Sun (via Earth)</td>
+<td><span class="arithmatex">\(1.496 \times 10^{11}\)</span> m</td>
+<td>365.25 days</td>
+<td><span class="arithmatex">\(1.99 \times 10^{30}\)</span> kg</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<p>Kepler’s Third Law, when combined with Newton’s law of gravitation, allows us to determine the mass of celestial bodies from orbital data. This fundamental principle underpins modern astrophysics and orbital mechanics.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
