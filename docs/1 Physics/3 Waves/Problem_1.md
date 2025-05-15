@@ -181,3 +181,13 @@ def plot_3d_surface(N):
 # Show 3D pattern for pentagon
 plot_3d_surface(5)
 ```
+---
+
+## Animasyonlar
+
+| N = 1 | N = 2 | N = 3 | N = 4 | N = 5 |
+|-------|-------|-------|-------|-------|
+| ![N=1](interference_N1.gif) | ![N=2](interference_N2.gif) | ![N=3](interference_N3.gif) | ![N=4](interference_N4.gif) | ![N=5](interference_N5.gif) |
+
+---
+
