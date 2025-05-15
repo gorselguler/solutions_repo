@@ -192,6 +192,8 @@ plot_3d_surface(5)
 ---
 ---
 
+---
+
 ## Interference Animations
 
 <p align="center">
