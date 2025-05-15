@@ -28,57 +28,29 @@ This acceleration acts towards the center of Earth.
 
 ### Initial Conditions and Solver
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp
-
-# Sabitler
-R_earth = 6371e3       # Dünya yarıçapı, metre
-mu = 3.986e14          # Yerçekimi parametresi (GM), m^3/s^2
-
-# Diferansiyel denklem: hareket denklemleri
-def equations(t, y):
-    x, vx, y_pos, vy = y
-    r = np.sqrt(x**2 + y_pos**2)
-    ax = -mu * x / r**3
-    ay = -mu * y_pos / r**3
-    return [vx, ax, vy, ay]
-
-# Başlangıç yüksekliği ve hızlar
-altitude = 300e3        # 300 km
+# Choose an altitude and initial velocity (vary this to simulate different cases)
+altitude = 300e3  # 300 km
 r0 = R_earth + altitude
+v_circular = np.sqrt(mu / r0)  # Circular orbital speed
 
-v_circular = np.sqrt(mu / r0)  # Dairesel yörünge hızı
-
+# Modify initial velocity to simulate different trajectories
 initial_conditions = {
-    'suborbital': 0.7 * v_circular,
-    'circular': v_circular,
-    'elliptical': 1.1 * v_circular,
-    'escape': np.sqrt(2) * v_circular,
+    'suborbital': [0, 0.7 * v_circular],
+    'circular': [0, v_circular],
+    'elliptical': [0, 1.1 * v_circular],
+    'escape': [0, np.sqrt(2) * v_circular],
 }
 
-fig, ax = plt.subplots(figsize=(8,8))
+fig, ax = plt.subplots(figsize=(8, 8))
 
 for label, vy0 in initial_conditions.items():
-    y0 = [r0, 0, 0, vy0]  # [x, vx, y, vy]
-    t_span = [0, 10000]
-    t_eval = np.linspace(*t_span, 5000)
-    sol = solve_ivp(equations, t_span, y0, t_eval=t_eval, rtol=1e-8)
-    
-    # Yeryüzüne girmemesi için, yörüngede r < R_earth olduğunda durabiliriz (isteğe bağlı)
-    r = np.sqrt(sol.y[0]**2 + sol.y[2]**2)
-    idx = np.where(r < R_earth)[0]
-    if len(idx) > 0:
-        cutoff = idx[0]
-        x = sol.y[0][:cutoff]
-        y_pos = sol.y[2][:cutoff]
-    else:
-        x = sol.y[0]
-        y_pos = sol.y[2]
-    
-    ax.plot(x / 1e3, y_pos / 1e3, label=label)
+    y0 = [r0, 0, 0, vy0]  # x, vx, y, vy
+    sol = solve_ivp(equations, [0, 10000], y0, t_eval=np.linspace(0, 10000, 5000))
+    x = sol.y[0]
+    y = sol.y[2]
+    ax.plot(x / 1e3, y / 1e3, label=label)
 
-# Dünya'yı çiz
+# Earth
 earth = plt.Circle((0, 0), R_earth / 1e3, color='blue', alpha=0.3)
 ax.add_patch(earth)
 
@@ -87,9 +59,10 @@ ax.set_ylabel('y (km)')
 ax.set_title('Payload Trajectories near Earth')
 ax.set_aspect('equal')
 ax.legend()
-ax.grid(True)
+plt.grid(True)
 plt.tight_layout()
 plt.show()
+```
 
 ![alt text](image-8.png)
 
