@@ -105,22 +105,27 @@ for i in range(N):
     # Acceleration
     a = force / m
 
-    # Euler integration (can upgrade to Runge-Kutta for higher accuracy)
+    # Euler integration
     v += a * dt
     r += v * dt
 
-# === Plotting the Trajectory in XY Plane ===
-plt.figure(figsize=(6, 6))
-plt.plot(trajectory[:, 0], trajectory[:, 1], label='Trajectory')
-plt.xlabel('x (m)')
-plt.ylabel('y (m)')
-plt.title('Charged Particle in Magnetic Field (Circular Motion)')
-plt.grid(True)
-plt.axis('equal')
-plt.legend()
+# === 3D Plotting ===
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(trajectory[:, 0], trajectory[:, 1], trajectory[:, 2], label='Trajectory')
+
+ax.set_xlabel('X (m)')
+ax.set_ylabel('Y (m)')
+ax.set_zlabel('Z (m)')
+ax.set_title('3D Trajectory of Charged Particle in Magnetic Field')
+ax.legend()
+ax.grid(True)
+ax.set_box_aspect([1,1,1])  # Equal aspect ratio for all axes
+
 plt.show()
+
 ```
-![alt text](image-2.png)
+![alt text](Trajectoryofchargedparticle.png)
 
 ---
 
@@ -212,31 +217,56 @@ plt.show()
 ![alt text](image.png)
 
 ```python
-# Crossed fields: E in x-direction, B in z-direction
-E = np.array([1.0, 0.0, 0.0])
-B = np.array([0.0, 0.0, 1.0])
-v0 = np.array([0.0, 1.0, 0.0])  # initial velocity
+import numpy as np
+import matplotlib.pyplot as plt
 
-# Reinitialize
+def lorentz_force(v, E, B, q=1.0):
+    return q * (E + np.cross(v, B))
+
+# Parameters
+q = 1.0
+m = 1.0
+dt = 0.01
+T = 20
+N = int(T / dt)
+
+r0 = np.array([0.0, 0.0, 0.0])
+E = np.array([1.0, 0.0, 0.0])   # Electric field along x
+B = np.array([0.0, 0.0, 1.0])   # Magnetic field along z
+v0 = np.array([0.0, 1.0, 0.0])  # Initial velocity along y
+
+# Initialize arrays
 r = np.zeros((N, 3))
 v = np.zeros((N, 3))
 r[0], v[0] = r0, v0
 
+# Time evolution
 for i in range(1, N):
-    a = lorentz_force(v[i-1], E, B) / m
+    a = lorentz_force(v[i-1], E, B, q) / m
     v[i] = v[i-1] + a * dt
     r[i] = r[i-1] + v[i] * dt
 
-# 2D Plot of Drift
-plt.figure(figsize=(8,6))
-plt.plot(r[:,0], r[:,1])
-plt.title('Drift Motion in Crossed Electric and Magnetic Fields')
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.axis('equal')
-plt.grid(True)
+# 3D plot of trajectory
+fig = plt.figure(figsize=(10,7))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(r[:,0], r[:,1], r[:,2], color='blue', label='Particle Trajectory')
+
+# Add arrows for fields (scaled for visibility)
+ax.quiver(0, 0, 0, E[0], E[1], E[2], color='red', length=5, normalize=True, label='E Field')
+ax.quiver(0, 0, 0, B[0], B[1], B[2], color='green', length=5, normalize=True, label='B Field')
+
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('3D Drift Motion in Crossed Electric and Magnetic Fields')
+ax.legend()
+ax.grid(True)
+ax.set_box_aspect([1,1,1])  # Equal axis scaling
+
 plt.show()
+
+
 ```
 
-![alt text](image-1.png)
+![alt text](drift.png)
 
