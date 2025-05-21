@@ -188,22 +188,20 @@ plot_3d_surface(5)
 
 ## Interference Animations
 
-<p align="center">
-  <img src="interference_N1.gif" width="500">
-</p>
+## Interference Animations
 
 <p align="center">
-  <img src="interference_N2.gif" width="500">
+  <img src="https://github.com/gorselguler/solutions_repo/raw/main/docs/1%20Physics/3%20Waves/interference_N1.gif" width="500">
 </p>
-
 <p align="center">
-  <img src="interference_N3.gif" width="500">
+  <img src="https://github.com/gorselguler/solutions_repo/raw/main/docs/1%20Physics/3%20Waves/interference_N2.gif" width="500">
 </p>
-
 <p align="center">
-  <img src="interference_N4.gif" width="500">
+  <img src="https://github.com/gorselguler/solutions_repo/raw/main/docs/1%20Physics/3%20Waves/interference_N3.gif" width="500">
 </p>
-
 <p align="center">
-  <img src="interference_N5.gif" width="500">
+  <img src="https://github.com/gorselguler/solutions_repo/raw/main/docs/1%20Physics/3%20Waves/interference_N4.gif" width="500">
+</p>
+<p align="center">
+  <img src="https://github.com/gorselguler/solutions_repo/raw/main/docs/1%20Physics/3%20Waves/interference_N5.gif" width="500">
 </p>
