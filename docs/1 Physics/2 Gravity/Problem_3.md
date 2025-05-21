@@ -65,6 +65,78 @@ plt.show()
 ```
 ![Trajectory Image](image69.png)
 
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp
+
+# Sabitler
+G = 6.67430e-11
+M_earth = 5.972e24
+R_earth = 6371e3
+mu = G * M_earth
+
+# Hareket denklemleri
+def equations(t, y):
+    x, vx, y_pos, vy = y
+    r = np.sqrt(x**2 + y_pos**2)
+    ax = -mu * x / r**3
+    ay = -mu * y_pos / r**3
+    return [vx, ax, vy, ay]
+
+# Dünya'ya çarpma kontrolü (event)
+def hit_earth(t, y):
+    x, _, y_pos, _ = y
+    r = np.sqrt(x**2 + y_pos**2)
+    return r - R_earth  # 0 olduğunda yüzeye temas
+
+hit_earth.terminal = True
+hit_earth.direction = -1  # sadece yaklaşırken tetiklensin
+
+# Başlangıç yüksekliği
+altitude = 300e3
+r0 = R_earth + altitude
+x0 = r0
+y0 = 0
+vx0 = 0
+
+# Hızlar (km/s cinsinden)
+velocities_kms = np.arange(5.5, 13.5, 0.5)
+velocities_ms = velocities_kms * 1e3
+
+# Grafik
+fig, ax = plt.subplots(figsize=(8, 8))
+
+for v in velocities_ms:
+    initial_state = [x0, vx0, y0, v]
+    sol = solve_ivp(
+        equations,
+        [0, 10000],
+        initial_state,
+        t_eval=np.linspace(0, 10000, 5000),
+        events=hit_earth,
+        rtol=1e-8,
+        atol=1e-10
+    )
+    x = sol.y[0]
+    y = sol.y[2]
+    ax.plot(x / 1e3, y / 1e3, label=f'{v/1e3:.1f} km/s')
+
+# Dünya'yı çiz
+earth = plt.Circle((0, 0), R_earth / 1e3, color='blue', alpha=0.3)
+ax.add_patch(earth)
+
+# Grafik ayarları
+ax.set_xlabel('x (km)')
+ax.set_ylabel('y (km)')
+ax.set_title('Farklı Hızlarla Yörüngeler (Çarpma Durdurmalı)')
+ax.set_aspect('equal')
+ax.legend(loc='upper right', fontsize='small')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+![Trajectory Image](colabimage1.png)
+
 
 ---
 
