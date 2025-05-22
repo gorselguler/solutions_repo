@@ -65,6 +65,7 @@ plt.show()
 ```
 ![Trajectory Image](image69.png)
 
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
@@ -132,6 +133,7 @@ ax.legend(loc='upper right', fontsize='small')
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
 
 ![Trajectory Image](colabimage1.png)
 
