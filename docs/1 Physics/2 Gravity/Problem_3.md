@@ -133,9 +133,10 @@ ax.legend(loc='upper right', fontsize='small')
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
+```
 
 ![Trajectory Image](colabimage1.png)
+
 
 
 ---
