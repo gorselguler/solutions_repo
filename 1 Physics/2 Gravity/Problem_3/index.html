@@ -295,25 +295,19 @@ ax.legend(loc='upper right', fontsize='small')
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
-
-![Trajectory Image](colabimage1.png)
-
-
----
-
-## Applications in Space Missions
-- **Orbital Insertion**: Matching circular or elliptical orbits for satellites.
-- **Escape Trajectory**: Interplanetary missions (e.g., to Mars).
-- **Reentry Design**: Predicting where a returning capsule will land.
-
----
-
-## Conclusion
-By changing the initial velocity of a payload, we observe distinct paths that help classify motion near Earth. Simulating these paths enhances our understanding of celestial mechanics and supports mission-critical decisions in aerospace engineering.
-
-```python
-radii = np.linspace(R_earth, R_earth + 2e6, 500)
+</code></pre>
+<p><img alt="Trajectory Image" src="../colabimage1.png"/></p>
+<hr/>
+<h2 id="applications-in-space-missions">Applications in Space Missions</h2>
+<ul>
+<li><strong>Orbital Insertion</strong>: Matching circular or elliptical orbits for satellites.</li>
+<li><strong>Escape Trajectory</strong>: Interplanetary missions (e.g., to Mars).</li>
+<li><strong>Reentry Design</strong>: Predicting where a returning capsule will land.</li>
+</ul>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>By changing the initial velocity of a payload, we observe distinct paths that help classify motion near Earth. Simulating these paths enhances our understanding of celestial mechanics and supports mission-critical decisions in aerospace engineering.</p>
+<pre><code class="language-python">radii = np.linspace(R_earth, R_earth + 2e6, 500)
 v_orbit = np.sqrt(mu / radii) / 1e3      # km/s
 v_escape = np.sqrt(2 * mu / radii) / 1e3 # km/s
 
