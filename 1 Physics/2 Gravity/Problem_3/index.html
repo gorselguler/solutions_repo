@@ -236,30 +236,30 @@ from scipy.integrate import solve_ivp</p>
 M_earth = 5.972e24
 R_earth = 6371e3
 mu = G * M_earth</p>
-<h1 id="hareket-denklemleri">Hareket denklemleri</h1>
+<h1 id="equations-of-motion">Equations of motion</h1>
 <p>def equations(t, y):
     x, vx, y_pos, vy = y
     r = np.sqrt(x<strong>2 + y_pos</strong>2)
     ax = -mu * x / r<strong>3
     ay = -mu * y_pos / r</strong>3
     return [vx, ax, vy, ay]</p>
-<h1 id="dunyaya-carpma-kontrolu-event">Dünya'ya çarpma kontrolü (event)</h1>
+<h1 id="earth-impact-check-event">Earth impact check (event)</h1>
 <p>def hit_earth(t, y):
     x, _, y_pos, _ = y
     r = np.sqrt(x<strong>2 + y_pos</strong>2)
-    return r - R_earth  # 0 olduğunda yüzeye temas</p>
+    return r - R_earth  # zero when surface is reached</p>
 <p>hit_earth.terminal = True
-hit_earth.direction = -1  # sadece yaklaşırken tetiklensin</p>
-<h1 id="baslangc-yuksekligi">Başlangıç yüksekliği</h1>
+hit_earth.direction = -1  # trigger only when approaching</p>
+<h1 id="initial-altitude">Initial altitude</h1>
 <p>altitude = 300e3
 r0 = R_earth + altitude
 x0 = r0
 y0 = 0
 vx0 = 0</p>
-<h1 id="hzlar-kms-cinsinden">Hızlar (km/s cinsinden)</h1>
+<h1 id="velocities-in-kms">Velocities (in km/s)</h1>
 <p>velocities_kms = np.arange(5.5, 13.5, 0.5)
 velocities_ms = velocities_kms * 1e3</p>
-<h1 id="grafik">Grafik</h1>
+<h1 id="plot">Plot</h1>
 <p>fig, ax = plt.subplots(figsize=(8, 8))</p>
 <p>for v in velocities_ms:
     initial_state = [x0, vx0, y0, v]
@@ -275,13 +275,13 @@ velocities_ms = velocities_kms * 1e3</p>
     x = sol.y[0]
     y = sol.y[2]
     ax.plot(x / 1e3, y / 1e3, label=f'{v/1e3:.1f} km/s')</p>
-<h1 id="dunyay-ciz">Dünya'yı çiz</h1>
+<h1 id="draw-the-earth">Draw the Earth</h1>
 <p>earth = plt.Circle((0, 0), R_earth / 1e3, color='blue', alpha=0.3)
 ax.add_patch(earth)</p>
-<h1 id="grafik-ayarlar">Grafik ayarları</h1>
+<h1 id="plot-settings">Plot settings</h1>
 <p>ax.set_xlabel('x (km)')
 ax.set_ylabel('y (km)')
-ax.set_title('Farklı Hızlarla Yörüngeler (Çarpma Durdurmalı)')
+ax.set_title('Orbits with Different Velocities (Impact Stopping)')
 ax.set_aspect('equal')
 ax.legend(loc='upper right', fontsize='small')
 plt.grid(True)
