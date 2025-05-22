@@ -228,38 +228,46 @@ plt.tight_layout()
 plt.show()
 </code></pre>
 <p><img alt="Trajectory Image" src="../image69.png"/></p>
-<p>import numpy as np
+<pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp</p>
-<h1 id="constants">Constants</h1>
-<p>mu = 3.986e14        # Earth's gravitational parameter (m^3/s^2)
-R_earth = 6371e3     # Earth's radius (m)</p>
-<h1 id="equations-of-motion">Equations of motion</h1>
-<p>def equations(t, y):
+from scipy.integrate import solve_ivp
+
+# Constants
+mu = 3.986e14        # Earth's gravitational parameter (m^3/s^2)
+R_earth = 6371e3     # Earth's radius (m)
+
+# Equations of motion
+def equations(t, y):
     x, vx, y_pos, vy = y
-    r = np.sqrt(x<strong>2 + y_pos</strong>2)
-    ax = -mu * x / r<strong>3
-    ay = -mu * y_pos / r</strong>3
-    return [vx, ax, vy, ay]</p>
-<h1 id="earth-impact-event-detection">Earth impact event detection</h1>
-<p>def hit_earth(t, y):
+    r = np.sqrt(x**2 + y_pos**2)
+    ax = -mu * x / r**3
+    ay = -mu * y_pos / r**3
+    return [vx, ax, vy, ay]
+
+# Earth impact event detection
+def hit_earth(t, y):
     x, _, y_pos, _ = y
-    r = np.sqrt(x<strong>2 + y_pos</strong>2)
-    return r - R_earth  # zero when reaching Earth's surface</p>
-<p>hit_earth.terminal = True
-hit_earth.direction = -1  # trigger only when approaching Earth</p>
-<h1 id="initial-altitude-300-km-above-earth-surface">Initial altitude (300 km above Earth surface)</h1>
-<p>altitude = 300e3
+    r = np.sqrt(x**2 + y_pos**2)
+    return r - R_earth  # zero when reaching Earth's surface
+
+hit_earth.terminal = True
+hit_earth.direction = -1  # trigger only when approaching Earth
+
+# Initial altitude (300 km above Earth surface)
+altitude = 300e3
 r0 = R_earth + altitude
 x0 = r0
 y0 = 0
-vx0 = 0</p>
-<h1 id="velocities-in-kms-converted-to-ms">Velocities in km/s converted to m/s</h1>
-<p>velocities_kms = np.arange(5.5, 13.5, 0.5)
-velocities_ms = velocities_kms * 1e3</p>
-<h1 id="plot-setup">Plot setup</h1>
-<p>fig, ax = plt.subplots(figsize=(8, 8))</p>
-<p>for v in velocities_ms:
+vx0 = 0
+
+# Velocities in km/s converted to m/s
+velocities_kms = np.arange(5.5, 13.5, 0.5)
+velocities_ms = velocities_kms * 1e3
+
+# Plot setup
+fig, ax = plt.subplots(figsize=(8, 8))
+
+for v in velocities_ms:
     initial_state = [x0, vx0, y0, v]
     sol = solve_ivp(
         equations,
@@ -272,31 +280,40 @@ velocities_ms = velocities_kms * 1e3</p>
     )
     x = sol.y[0]
     y = sol.y[2]
-    ax.plot(x / 1e3, y / 1e3, label=f'{v/1e3:.1f} km/s')</p>
-<h1 id="draw-the-earth">Draw the Earth</h1>
-<p>earth = plt.Circle((0, 0), R_earth / 1e3, color='blue', alpha=0.3)
-ax.add_patch(earth)</p>
-<h1 id="plot-labels-and-settings">Plot labels and settings</h1>
-<p>ax.set_xlabel('x (km)')
+    ax.plot(x / 1e3, y / 1e3, label=f'{v/1e3:.1f} km/s')
+
+# Draw the Earth
+earth = plt.Circle((0, 0), R_earth / 1e3, color='blue', alpha=0.3)
+ax.add_patch(earth)
+
+# Plot labels and settings
+ax.set_xlabel('x (km)')
 ax.set_ylabel('y (km)')
 ax.set_title('Orbits with Different Initial Velocities (Impact Stopping)')
 ax.set_aspect('equal')
 ax.legend(loc='upper right', fontsize='small')
 plt.grid(True)
 plt.tight_layout()
-plt.show()</p>
-<p><img alt="Trajectory Image" src="../colabimage1.png"/></p>
-<hr/>
-<h2 id="applications-in-space-missions">Applications in Space Missions</h2>
-<ul>
-<li><strong>Orbital Insertion</strong>: Matching circular or elliptical orbits for satellites.</li>
-<li><strong>Escape Trajectory</strong>: Interplanetary missions (e.g., to Mars).</li>
-<li><strong>Reentry Design</strong>: Predicting where a returning capsule will land.</li>
-</ul>
-<hr/>
-<h2 id="conclusion">Conclusion</h2>
-<p>By changing the initial velocity of a payload, we observe distinct paths that help classify motion near Earth. Simulating these paths enhances our understanding of celestial mechanics and supports mission-critical decisions in aerospace engineering.</p>
-<pre><code class="language-python">radii = np.linspace(R_earth, R_earth + 2e6, 500)
+plt.show()
+
+
+![Trajectory Image](colabimage1.png)
+
+
+---
+
+## Applications in Space Missions
+- **Orbital Insertion**: Matching circular or elliptical orbits for satellites.
+- **Escape Trajectory**: Interplanetary missions (e.g., to Mars).
+- **Reentry Design**: Predicting where a returning capsule will land.
+
+---
+
+## Conclusion
+By changing the initial velocity of a payload, we observe distinct paths that help classify motion near Earth. Simulating these paths enhances our understanding of celestial mechanics and supports mission-critical decisions in aerospace engineering.
+
+```python
+radii = np.linspace(R_earth, R_earth + 2e6, 500)
 v_orbit = np.sqrt(mu / radii) / 1e3      # km/s
 v_escape = np.sqrt(2 * mu / radii) / 1e3 # km/s
 
