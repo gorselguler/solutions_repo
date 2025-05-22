@@ -69,11 +69,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 
-# Sabitler
-G = 6.67430e-11
-M_earth = 5.972e24
-R_earth = 6371e3
-mu = G * M_earth
+# Constants
+mu = 3.986e14        # Earth's gravitational parameter (m^3/s^2)
+R_earth = 6371e3     # Earth's radius (m)
 
 # Equations of motion
 def equations(t, y):
@@ -83,27 +81,27 @@ def equations(t, y):
     ay = -mu * y_pos / r**3
     return [vx, ax, vy, ay]
 
-# Earth impact check (event)
+# Earth impact event detection
 def hit_earth(t, y):
     x, _, y_pos, _ = y
     r = np.sqrt(x**2 + y_pos**2)
-    return r - R_earth  # zero when surface is reached
+    return r - R_earth  # zero when reaching Earth's surface
 
 hit_earth.terminal = True
-hit_earth.direction = -1  # trigger only when approaching
+hit_earth.direction = -1  # trigger only when approaching Earth
 
-# Initial altitude
+# Initial altitude (300 km above Earth surface)
 altitude = 300e3
 r0 = R_earth + altitude
 x0 = r0
 y0 = 0
 vx0 = 0
 
-# Velocities (in km/s)
+# Velocities in km/s converted to m/s
 velocities_kms = np.arange(5.5, 13.5, 0.5)
 velocities_ms = velocities_kms * 1e3
 
-# Plot
+# Plot setup
 fig, ax = plt.subplots(figsize=(8, 8))
 
 for v in velocities_ms:
@@ -125,10 +123,10 @@ for v in velocities_ms:
 earth = plt.Circle((0, 0), R_earth / 1e3, color='blue', alpha=0.3)
 ax.add_patch(earth)
 
-# Plot settings
+# Plot labels and settings
 ax.set_xlabel('x (km)')
 ax.set_ylabel('y (km)')
-ax.set_title('Orbits with Different Velocities (Impact Stopping)')
+ax.set_title('Orbits with Different Initial Velocities (Impact Stopping)')
 ax.set_aspect('equal')
 ax.legend(loc='upper right', fontsize='small')
 plt.grid(True)
