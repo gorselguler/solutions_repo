@@ -75,7 +75,7 @@ M_earth = 5.972e24
 R_earth = 6371e3
 mu = G * M_earth
 
-# Hareket denklemleri
+# Equations of motion
 def equations(t, y):
     x, vx, y_pos, vy = y
     r = np.sqrt(x**2 + y_pos**2)
@@ -83,27 +83,27 @@ def equations(t, y):
     ay = -mu * y_pos / r**3
     return [vx, ax, vy, ay]
 
-# Dünya'ya çarpma kontrolü (event)
+# Earth impact check (event)
 def hit_earth(t, y):
     x, _, y_pos, _ = y
     r = np.sqrt(x**2 + y_pos**2)
-    return r - R_earth  # 0 olduğunda yüzeye temas
+    return r - R_earth  # zero when surface is reached
 
 hit_earth.terminal = True
-hit_earth.direction = -1  # sadece yaklaşırken tetiklensin
+hit_earth.direction = -1  # trigger only when approaching
 
-# Başlangıç yüksekliği
+# Initial altitude
 altitude = 300e3
 r0 = R_earth + altitude
 x0 = r0
 y0 = 0
 vx0 = 0
 
-# Hızlar (km/s cinsinden)
+# Velocities (in km/s)
 velocities_kms = np.arange(5.5, 13.5, 0.5)
 velocities_ms = velocities_kms * 1e3
 
-# Grafik
+# Plot
 fig, ax = plt.subplots(figsize=(8, 8))
 
 for v in velocities_ms:
@@ -121,14 +121,14 @@ for v in velocities_ms:
     y = sol.y[2]
     ax.plot(x / 1e3, y / 1e3, label=f'{v/1e3:.1f} km/s')
 
-# Dünya'yı çiz
+# Draw the Earth
 earth = plt.Circle((0, 0), R_earth / 1e3, color='blue', alpha=0.3)
 ax.add_patch(earth)
 
-# Grafik ayarları
+# Plot settings
 ax.set_xlabel('x (km)')
 ax.set_ylabel('y (km)')
-ax.set_title('Farklı Hızlarla Yörüngeler (Çarpma Durdurmalı)')
+ax.set_title('Orbits with Different Velocities (Impact Stopping)')
 ax.set_aspect('equal')
 ax.legend(loc='upper right', fontsize='small')
 plt.grid(True)
