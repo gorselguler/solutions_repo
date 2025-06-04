@@ -10,8 +10,11 @@ By modeling circuits as graphs — where nodes represent junctions and edges rep
 Series Connection
 
 If resistors are connected end-to-end:
+
 Nodes:
 B+, N1, B-
+
+
 Resistors:
 
 Node1: B+
@@ -64,7 +67,7 @@ def _combine_series_threaded(self, G, step_count):
             self.update_status_signal.emit(f"Series combination: {u}-{nodes_to_remove[0]}-{v} combined. New resistance: {R_new:.2f}Ω")
             self._draw_and_save_graph(G, f"Step {step_count}: Series {u}-{v} = {R_new:.2f}Ω ({r1_val:.2f}Ω + {r2_val:.2f}Ω)", step_count)
     return step_count, changed
-![Step 00](git commit -m "Problem_1.md dosyası güncellendi".png) ![Step 22](step_.png)
+![Step 00](Seriesstep_00) ![Step 22](Seriesstep_02)
 
 def parallel_circuit(*resistances):
 
