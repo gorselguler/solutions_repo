@@ -76,73 +76,33 @@ phyton
 ![Step 22](seriesstep_02.png)
 
 
-🔄 Iterative Reduction Steps
-Identify and combine series-connected resistors.
-Identify and combine parallel-connected resistors.
-Repeat until one equivalent resistance remains.
+## 🔄 Iterative Reduction Steps
 
-▶ Example 2: Parallel
+1. Identify and combine **series-connected** resistors.  
+2. Identify and combine **parallel-connected** resistors.  
+3. Repeat until one equivalent resistance remains.
 
-Nodes: B+, B-
-Resistors between B+ and B-:
+---
 
-Resistance 1	Resistance 2
-100 Ω	200 Ω
+### ▶ Example 2: Parallel
 
-Equivalent resistance for parallel resistors:
+**Nodes:** B+, B-  
+**Resistors between B+ and B-:**
 
-1
-𝑅
-eq
-=
-1
-100
-+
-1
-200
-⇒
-𝑅
-eq
-=
-1
-1
-100
-+
-1
-200
-=
-66.67
-  
-Ω
-R 
-eq
-​
- 
-1
-​
- = 
-100
-1
-​
- + 
-200
-1
-​
- ⇒R 
-eq
-​
- = 
-100
-1
-​
- + 
-200
-1
-​
- 
-1
-​
- =66.67Ω
+| Resistance 1 | Resistance 2 |
+|--------------|--------------|
+| 100 Ω        | 200 Ω        |
+
+**Equivalent resistance for parallel resistors:**
+
+\[
+\frac{1}{R_{eq}} = \frac{1}{100} + \frac{1}{200} \implies R_{eq} = \frac{1}{\frac{1}{100} + \frac{1}{200}} = 66.67 \, \Omega
+\]
+
+Or in plain text:
+
+1 / R_eq = 1/100 + 1/200
+R_eq = 1 / (1/100 + 1/200) = 66.67 Ω
 
 python
 
@@ -184,41 +144,42 @@ python
 ![paralelstep1](paralel_step_01.png)
 
 
-▶ Example 3: Nested
+### ▶ Example 3: Nested Circuit
 
-lua
+A --2Ω--+--B--4Ω--+--C
+| |
+3Ω 6Ω
+| |
++--------+
+
+yaml
 Copy
 Edit
-A --2Ω--+--B--4Ω--+--C
-        |        |
-        3Ω       6Ω
-        |        |
-        +--------+
-Steps:
 
-4Ω and 6Ω → parallel: 2.4Ω
+**Steps:**
 
-Series: 3 + 2.4 = 5.4Ω
+- 4Ω and 6Ω → **parallel**: 2.4Ω  
+- Series: 3 + 2.4 = 5.4Ω  
+- Total: 2 + 5.4 = 7.4Ω  
 
-Total: 2 + 5.4 = 7.4Ω
+---
 
-📊 Time & Space Complexity
+### 📊 Time & Space Complexity
 
-Time: 𝑂(E)
+- **Time:** \( O(E) \)  
+- **Space:** \( O(V + E) \)  
 
-Space: 𝑂(V + E)
+---
 
-🚀 Future Improvements
+### 🚀 Future Improvements
 
-Graph traversal (DFS/BFS)
-
-Caching repeated subgraphs
-
-GUI or interactive input
+- Graph traversal (DFS/BFS)  
+- Caching repeated subgraphs  
+- GUI or interactive input  
 
 python
 
-import networkx as nx
+    import networkx as nx
 
     def parallel_resistance(resistors):
     """Paralel bağlı dirençlerin eşdeğerini hesaplar."""
