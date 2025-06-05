@@ -264,8 +264,6 @@ Users can build circuits by adding **nodes** and **resistors**, and the program 
 
 ## 📥 Downloads
 
-### ▶️ Download the Colab Notebook  
-Use the interactive notebook version to run and visualize the algorithm directly in Google Colab or locally:
 
 <p align="center">
   <a href="https://drive.google.com/drive/folders/1HImjslU9U_RRR_lJOYFRNqLK1Y6UqLa2" target="_blank">
