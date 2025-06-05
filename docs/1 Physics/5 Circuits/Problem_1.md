@@ -70,13 +70,11 @@ phyton
             self.update_status_signal.emit(f"Series combination: {u}-{nodes_to_remove[0]}-{v} combined. New resistance: {R_new:.2f}Ω")
             self._draw_and_save_graph(G, f"Step {step_count}: Series {u}-{v} = {R_new:.2f}Ω ({r1_val:.2f}Ω + {r2_val:.2f}Ω)", step_count)
     return step_count, changed
-![Step 00](Seriesstep_00.png) 
+![Step 00](Seriesstep_00.png)
 ![Step 22](seriesstep_02.png)
 
-def parallel_circuit(*resistances):
 
-    inverse_sum = sum(1 / r for r in resistances)
-    return 1 / inverse_sum
+
 🔄 Iterative Reduction Steps
 Identify and combine series-connected resistors.
 
@@ -131,9 +129,9 @@ python
             self.update_status_signal.emit(f"Parallel combination: Resistors between {u}-{v} combined. New resistance: {R_parallel:.2f}Ω")
             self._draw_and_save_graph(G, f"Step {step_count}: Parallel {u}-{v} = {R_parallel:.2f}Ω", step_count)
     return step_count, changed
-
-![paralelstep1](paralel_step_01.png)
 ![paralelstep1](paralel_step_02.png)
+![paralelstep1](paralel_step_01.png)
+
 
 Example 3: Nested
 lua
