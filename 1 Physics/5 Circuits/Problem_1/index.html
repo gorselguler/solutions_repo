@@ -169,24 +169,35 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<p>📘 Equivalent Resistance Using Graph Theory
-🎯 Motivation
+<p>📘 Equivalent Resistance Using Graph Theory</p>
+<p>🎯 Motivation
 Calculating the equivalent resistance in an electrical circuit is a fundamental task in electrical engineering and physics. While traditional methods rely on manually applying series and parallel rules, graph theory provides a more scalable solution for complex resistor networks.</p>
 <p>By modeling circuits as graphs — where nodes represent junctions and edges represent resistors — we can automate the reduction process.</p>
-<p>🧠 Algorithm Overview
-🔹 </p>
-<p>Series Connection</p>
+<p>🧠 Algorithm Overview</p>
+<p>🔹 Series Connection</p>
 <p>If resistors are connected end-to-end:</p>
 <p>Nodes:
 B+, N1, B-</p>
 <p>Resistors:</p>
-<p>Node1: B+</p>
-<p>Node2: N1</p>
-<p>Value: 100</p>
-<p>Node1: N1</p>
-<p>Node2: B-</p>
-<p>Value: 200</p>
-<p>The total equivalent resistance will be 300 Ω (since 100 + 200 = 300 in series).</p>
+<p>Node1   Node2   Value (Ω)
+B+  N1  100
+N1  B-  200</p>
+<p>The total equivalent resistance will be:</p>
+<p>𝑅
+eq
+=
+100
++
+200
+=
+300
+  
+Ω
+R 
+eq
+​
+ =100+200=300Ω
+(since resistors in series sum up)</p>
 <p>phyton</p>
 <pre><code>def _combine_series_threaded(self, G, step_count):
 
@@ -227,15 +238,65 @@ return step_count, changed
 <p><img alt="Step 00" src="../Seriesstep_00.png"/>
 <img alt="Step 22" src="../seriesstep_02.png"/></p>
 <p>🔄 Iterative Reduction Steps
-Identify and combine series-connected resistors.</p>
-<p>Identify and combine parallel-connected resistors.</p>
-<p>+
+Identify and combine series-connected resistors.
+Identify and combine parallel-connected resistors.
 Repeat until one equivalent resistance remains.</p>
 <p>▶ Example 2: Parallel</p>
-<p>B+, B-
-B+ - B-: 100 Ω
-B+ - B-: 200 Ω</p>
-<p>1 / Req = 1/100 + 1/200 → Req = 66.67 Ω</p>
+<p>Nodes: B+, B-
+Resistors between B+ and B-:</p>
+<p>Resistance 1    Resistance 2
+100 Ω   200 Ω</p>
+<p>Equivalent resistance for parallel resistors:</p>
+<p>1
+𝑅
+eq
+=
+1
+100
++
+1
+200
+⇒
+𝑅
+eq
+=
+1
+1
+100
++
+1
+200
+=
+66.67
+  
+Ω
+R 
+eq
+​</p>
+<p>1
+​
+ = 
+100
+1
+​
+ + 
+200
+1
+​
+ ⇒R 
+eq
+​
+ = 
+100
+1
+​
+ + 
+200
+1
+​</p>
+<p>1
+​
+ =66.67Ω</p>
 <p>python</p>
 <pre><code>def _combine_parallel_threaded(self, G, step_count):
 changed = False
@@ -274,9 +335,11 @@ return step_count, changed
 </code></pre>
 <p><img alt="paralelstep1" src="../paralel_step_02.png"/>
 <img alt="paralelstep1" src="../paralel_step_01.png"/></p>
-<p>Example 3: Nested
-lua</p>
-<p>A --2Ω--+--B--4Ω--+--C
+<p>▶ Example 3: Nested</p>
+<p>lua
+Copy
+Edit
+A --2Ω--+--B--4Ω--+--C
         |        |
         3Ω       6Ω
         |        |
@@ -285,13 +348,64 @@ Steps:</p>
 <p>4Ω and 6Ω → parallel: 2.4Ω</p>
 <p>Series: 3 + 2.4 = 5.4Ω</p>
 <p>Total: 2 + 5.4 = 7.4Ω</p>
-<p>📊 Time &amp; Space Complexity
-Time: 𝑂(E)</p>
+<p>📊 Time &amp; Space Complexity</p>
+<p>Time: 𝑂(E)</p>
 <p>Space: 𝑂(V + E)</p>
-<p>🚀 Future Improvements
-Graph traversal (DFS/BFS)</p>
+<p>🚀 Future Improvements</p>
+<p>Graph traversal (DFS/BFS)</p>
 <p>Caching repeated subgraphs</p>
 <p>GUI or interactive input</p>
+<p>python</p>
+<p>import networkx as nx</p>
+<pre><code>def parallel_resistance(resistors):
+"""Paralel bağlı dirençlerin eşdeğerini hesaplar."""
+try:
+    inv_sum = sum(1/r for r in resistors if r != 0)
+    return 1 / inv_sum if inv_sum != 0 else 0
+except ZeroDivisionError:
+    return 0
+
+def series_resistance(resistors):
+ """Seri bağlı dirençlerin toplamını döner."""
+return sum(resistors)
+
+def build_circuit_graph():
+ """Örnek devreyi graph olarak oluşturur."""
+G = nx.MultiGraph()
+G.add_nodes_from(['A', 'B', 'C'])
+G.add_edge('A', 'B', resistance=2)
+G.add_edge('B', 'C', resistance=4)
+G.add_edge('A', 'B', resistance=3)
+G.add_edge('B', 'C', resistance=6)
+return G
+
+def calculate_equivalent_resistance(G):
+"""
+Örnek devre için eşdeğer direnci hesaplar.
+Devre:
+A --2Ω--+--B--4Ω--+--C
+        |        |
+        3Ω       6Ω
+        |        |
+        +--------+
+"""
+# Paralel dirençler B-C (4Ω ve 6Ω)
+parallel_BC = parallel_resistance([4, 6])
+# B düğümünde seri direnç (3Ω + paralel sonucu)
+series_B = series_resistance([3, parallel_BC])
+# A-B arasındaki seri toplam (2Ω + B'deki seri)
+total_resistance = series_resistance([2, series_B])
+
+return total_resistance
+
+if __name__ == "__main__":
+G = build_circuit_graph()
+Req = calculate_equivalent_resistance(G)
+print(f"Toplam eşdeğer direnç: {Req:.2f} Ω")
+</code></pre>
+<p><img alt="1" src="../1.png"/>
+<img alt="2" src="../2%40.png"/>
+<img alt="3" src="3.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
