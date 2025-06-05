@@ -274,5 +274,40 @@ import networkx as nx
 ![2](2@.png)
 ![3](3.png)
 
-[⬇️ Download Circuit Solver ](https://drive.google.com/drive/folders/1HImjslU9U_RRR_lJOYFRNqLK1Y6UqLa2)
 
+
+# ⚡ Circuit Solver GUI – Equivalent Resistance Calculator
+
+This project is a **user-friendly Python application** for visually and interactively calculating the **equivalent resistance of electrical circuits**.
+
+Users can build circuits by adding **nodes** and **resistors**, and the program automatically simplifies the network using **series** and **parallel** reduction algorithms. Each step is **visualized and saved as an image**, making it easier to follow the simplification process.
+
+---
+![CurcuitSolver](CurcuitSolver.png)
+
+## 🚀 Features
+
+- ✅ Easy circuit creation via node and resistor input  
+- 🔁 Automatic **series** and **parallel** resistance reduction  
+- 🖼️ Step-by-step visualizations (**PNG images**) for each reduction  
+- 📢 Clear status messages and **final result display**  
+- 🧹 Option to **reset/clear** the circuit  
+- 📥 **Download final image** of the reduced circuit  
+
+---
+
+## 🛠️ How to Use
+
+1. **Enter node names** (separated by commas) and click **Add Nodes**
+2. **Add resistors** between nodes with resistance values
+3. Click **Calculate Equivalent Resistance**
+4. View **step-by-step visual reductions** and **final result**
+
+---
+
+## 📥 Downloads
+
+### ▶️ Download the Colab Notebook  
+Use the interactive notebook version to run and visualize the algorithm directly in Google Colab or locally:
+
+[![Download .ipynb](https://img.shields.io/badge/Download-Notebook-blue?style=for-the-badge&logo=google-colab)](https://github.com/USERNAME/REPONAME/raw/main/CircuitSolver.ipynb)
