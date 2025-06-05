@@ -176,10 +176,10 @@ Calculating the equivalent resistance in an electrical circuit is a fundamental 
 <p>🧠 Algorithm Overview
 🔹 </p>
 <p>Series Connection</p>
-<p>If resistors are connected end-to-end:
-Nodes:
-B+, N1, B-
-Resistors:</p>
+<p>If resistors are connected end-to-end:</p>
+<p>Nodes:
+B+, N1, B-</p>
+<p>Resistors:</p>
 <p>Node1: B+</p>
 <p>Node2: N1</p>
 <p>Value: 100</p>
@@ -222,7 +222,7 @@ if changed:
         self._draw_and_save_graph(G, f"Step {step_count}: Series {u}-{v} = {R_new:.2f}Ω ({r1_val:.2f}Ω + {r2_val:.2f}Ω)", step_count)
 return step_count, changed
 </code></pre>
-<p><img alt="Step 00" src='git commit -m "Problem_1.md dosyası güncellendi".png'/> <img alt="Step 22" src="step_.png"/></p>
+<p><img alt="Step 00" src="Seriesstep_00"/> <img alt="Step 22" src="Seriesstep_02"/></p>
 <p>def parallel_circuit(*resistances):</p>
 <pre><code>inverse_sum = sum(1 / r for r in resistances)
 return 1 / inverse_sum
