@@ -86,6 +86,18 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#iterative-reduction-steps">🔄 Iterative Reduction Steps</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-2-parallel">▶ Example 2: Parallel</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#example-3-nested-circuit">▶ Example 3: Nested Circuit</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#time-space-complexity">📊 Time &amp; Space Complexity</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#future-improvements">🚀 Future Improvements</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -255,66 +267,37 @@ return step_count, changed
 </code></pre>
 <p><img alt="Step 00" src="../Seriesstep_00.png"/>
 <img alt="Step 22" src="../seriesstep_02.png"/></p>
-<p>🔄 Iterative Reduction Steps
-Identify and combine series-connected resistors.
-Identify and combine parallel-connected resistors.
-Repeat until one equivalent resistance remains.</p>
-<p>▶ Example 2: Parallel</p>
-<p>Nodes: B+, B-
-Resistors between B+ and B-:</p>
-<p>Resistance 1    Resistance 2
-100 Ω   200 Ω</p>
-<p>Equivalent resistance for parallel resistors:</p>
-<p>1
-𝑅
-eq
-=
-1
-100
-+
-1
-200
-⇒
-𝑅
-eq
-=
-1
-1
-100
-+
-1
-200
-=
-66.67
-  
-Ω
-R 
-eq
-​</p>
-<p>1
-​
- = 
-100
-1
-​
- + 
-200
-1
-​
- ⇒R 
-eq
-​
- = 
-100
-1
-​
- + 
-200
-1
-​</p>
-<p>1
-​
- =66.67Ω</p>
+<h2 id="iterative-reduction-steps">🔄 Iterative Reduction Steps</h2>
+<ol>
+<li>Identify and combine <strong>series-connected</strong> resistors.  </li>
+<li>Identify and combine <strong>parallel-connected</strong> resistors.  </li>
+<li>Repeat until one equivalent resistance remains.</li>
+</ol>
+<hr/>
+<h3 id="example-2-parallel">▶ Example 2: Parallel</h3>
+<p><strong>Nodes:</strong> B+, B-<br/>
+<strong>Resistors between B+ and B-:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Resistance 1</th>
+<th>Resistance 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100 Ω</td>
+<td>200 Ω</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Equivalent resistance for parallel resistors:</strong></p>
+<div class="arithmatex">\[
+\frac{1}{R_{eq}} = \frac{1}{100} + \frac{1}{200} \implies R_{eq} = \frac{1}{\frac{1}{100} + \frac{1}{200}} = 66.67 \, \Omega
+\]</div>
+<p>Or in plain text:</p>
+<p>1 / R_eq = 1/100 + 1/200
+R_eq = 1 / (1/100 + 1/200) = 66.67 Ω</p>
 <p>python</p>
 <pre><code>def _combine_parallel_threaded(self, G, step_count):
 changed = False
@@ -353,29 +336,38 @@ return step_count, changed
 </code></pre>
 <p><img alt="paralelstep1" src="../paralel_step_02.png"/>
 <img alt="paralelstep1" src="../paralel_step_01.png"/></p>
-<p>▶ Example 3: Nested</p>
-<p>lua
+<h3 id="example-3-nested-circuit">▶ Example 3: Nested Circuit</h3>
+<p>A --2Ω--+--B--4Ω--+--C
+| |
+3Ω 6Ω
+| |
++--------+</p>
+<p>yaml
 Copy
-Edit
-A --2Ω--+--B--4Ω--+--C
-        |        |
-        3Ω       6Ω
-        |        |
-        +--------+
-Steps:</p>
-<p>4Ω and 6Ω → parallel: 2.4Ω</p>
-<p>Series: 3 + 2.4 = 5.4Ω</p>
-<p>Total: 2 + 5.4 = 7.4Ω</p>
-<p>📊 Time &amp; Space Complexity</p>
-<p>Time: 𝑂(E)</p>
-<p>Space: 𝑂(V + E)</p>
-<p>🚀 Future Improvements</p>
-<p>Graph traversal (DFS/BFS)</p>
-<p>Caching repeated subgraphs</p>
-<p>GUI or interactive input</p>
+Edit</p>
+<p><strong>Steps:</strong></p>
+<ul>
+<li>4Ω and 6Ω → <strong>parallel</strong>: 2.4Ω  </li>
+<li>Series: 3 + 2.4 = 5.4Ω  </li>
+<li>Total: 2 + 5.4 = 7.4Ω  </li>
+</ul>
+<hr/>
+<h3 id="time-space-complexity">📊 Time &amp; Space Complexity</h3>
+<ul>
+<li><strong>Time:</strong> <span class="arithmatex">\( O(E) \)</span> </li>
+<li><strong>Space:</strong> <span class="arithmatex">\( O(V + E) \)</span> </li>
+</ul>
+<hr/>
+<h3 id="future-improvements">🚀 Future Improvements</h3>
+<ul>
+<li>Graph traversal (DFS/BFS)  </li>
+<li>Caching repeated subgraphs  </li>
+<li>GUI or interactive input  </li>
+</ul>
 <p>python</p>
-<p>import networkx as nx</p>
-<pre><code>def parallel_resistance(resistors):
+<pre><code>import networkx as nx
+
+def parallel_resistance(resistors):
 """Paralel bağlı dirençlerin eşdeğerini hesaplar."""
 try:
     inv_sum = sum(1/r for r in resistors if r != 0)
