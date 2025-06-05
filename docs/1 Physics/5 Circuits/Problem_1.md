@@ -33,7 +33,10 @@ The total equivalent resistance will be 300 Ω (since 100 + 200 = 300 in series)
 
 
 phyton
-def _combine_series_threaded(self, G, step_count):
+
+
+    def _combine_series_threaded(self, G, step_count):
+
 
     changed = False
     nodes_to_remove = []
@@ -94,8 +97,7 @@ B+ - B-: 200 Ω
 
 python
 
-def _combine_parallel_threaded(self, G, step_count):
-    
+    def _combine_parallel_threaded(self, G, step_count):
     changed = False
     edges_to_remove = []
     edges_to_add = []
@@ -130,7 +132,8 @@ def _combine_parallel_threaded(self, G, step_count):
             self._draw_and_save_graph(G, f"Step {step_count}: Parallel {u}-{v} = {R_parallel:.2f}Ω", step_count)
     return step_count, changed
 
-![paralelstep1]("C:\Users\Gorsel\OneDrive\Masaüstü\paralel_step_01.png")
+![paralelstep1](paralel_step_01.png)
+![paralelstep1](paralel_step_02.png)
 
 Example 3: Nested
 lua
