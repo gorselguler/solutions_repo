@@ -270,8 +270,5 @@ import networkx as nx
     Req = calculate_equivalent_resistance(G)
     print(f"Toplam eşdeğer direnç: {Req:.2f} Ω")
 
-![1](1.png)
-![2](2@.png)
-![3](03.png)
 
 
