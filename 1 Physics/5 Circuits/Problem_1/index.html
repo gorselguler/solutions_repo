@@ -226,10 +226,6 @@ return step_count, changed
 </code></pre>
 <p><img alt="Step 00" src="../Seriesstep_00.png"/>
 <img alt="Step 22" src="../seriesstep_02.png"/></p>
-<p>def parallel_circuit(*resistances):</p>
-<pre><code>inverse_sum = sum(1 / r for r in resistances)
-return 1 / inverse_sum
-</code></pre>
 <p>🔄 Iterative Reduction Steps
 Identify and combine series-connected resistors.</p>
 <p>Identify and combine parallel-connected resistors.</p>
@@ -276,8 +272,8 @@ if changed:
         self._draw_and_save_graph(G, f"Step {step_count}: Parallel {u}-{v} = {R_parallel:.2f}Ω", step_count)
 return step_count, changed
 </code></pre>
-<p><img alt="paralelstep1" src="../paralel_step_01.png"/>
-<img alt="paralelstep1" src="../paralel_step_02.png"/></p>
+<p><img alt="paralelstep1" src="../paralel_step_02.png"/>
+<img alt="paralelstep1" src="../paralel_step_01.png"/></p>
 <p>Example 3: Nested
 lua</p>
 <p>A --2Ω--+--B--4Ω--+--C
