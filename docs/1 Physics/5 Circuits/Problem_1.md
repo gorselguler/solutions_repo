@@ -1,42 +1,38 @@
-📘 Equivalent Resistance Using Graph Theory
+# 📘 Equivalent Resistance Using Graph Theory
 
-🎯 Motivation
-Calculating the equivalent resistance in an electrical circuit is a fundamental task in electrical engineering and physics. While traditional methods rely on manually applying series and parallel rules, graph theory provides a more scalable solution for complex resistor networks.
+## 🎯 Motivation  
+Calculating the equivalent resistance in an electrical circuit is a fundamental task in electrical engineering and physics. While traditional methods rely on manually applying series and parallel rules, **graph theory** provides a more scalable solution for complex resistor networks.
 
-By modeling circuits as graphs — where nodes represent junctions and edges represent resistors — we can automate the reduction process.
+By modeling circuits as **graphs** — where **nodes** represent junctions and **edges** represent resistors — we can automate the reduction process.
 
-🧠 Algorithm Overview
+---
 
-🔹 Series Connection
+## 🧠 Algorithm Overview
+
+### 🔹 Series Connection
 
 If resistors are connected end-to-end:
 
-Nodes:
-B+, N1, B-
+**Nodes:**
 
-Resistors:
+B+ — N1 — B-
 
-Node1	Node2	Value (Ω)
-B+	N1	100
-N1	B-	200
 
-The total equivalent resistance will be:
+**Resistors:**
 
-𝑅
-eq
-=
-100
-+
-200
-=
-300
-  
-Ω
-R 
-eq
-​
- =100+200=300Ω
-(since resistors in series sum up)
+| Node 1 | Node 2 | Value (Ω) |
+|--------|--------|-----------|
+| B+     | N1     | 100       |
+| N1     | B-     | 200       |
+
+**Equivalent Resistance Calculation:**
+
+R_eq = 100 + 200 = 300 Ω
+
+
+
+> (Since resistors in series simply sum up)
+
 
 phyton
 
