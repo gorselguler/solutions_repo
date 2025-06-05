@@ -272,7 +272,7 @@ import networkx as nx
 
 ![1](1.png)
 ![2](2@.png)
-![3](03.png)
+![3](3.png)
 
 [⬇️ Download Circuit Solver ](https://drive.google.com/drive/folders/1HImjslU9U_RRR_lJOYFRNqLK1Y6UqLa2)
 
