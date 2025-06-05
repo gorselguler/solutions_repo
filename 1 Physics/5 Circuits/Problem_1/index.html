@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>📘 Equivalent Resistance Using Graph Theory - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "\ud83d\udcd8 Equivalent Resistance Using Graph Theory";
         var mkdocs_page_input_path = "1 Physics/5 Circuits/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -76,15 +76,13 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">5 Circuits</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">📘 Equivalent Resistance Using Graph Theory</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#features">🚀 Features</a>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">🎯 Motivation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-use">🛠️ How to Use</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#downloads">📥 Downloads</a>
+<li class="toctree-l3"><a class="reference internal" href="#algorithm-overview">🧠 Algorithm Overview</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#download-the-colab-notebook">▶️ Download the Colab Notebook</a>
+<li class="toctree-l4"><a class="reference internal" href="#series-connection">🔹 Series Connection</a>
 </li>
 </ul>
 </li>
@@ -173,7 +171,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">5 Circuits</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">📘 Equivalent Resistance Using Graph Theory</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -181,35 +179,43 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<p>📘 Equivalent Resistance Using Graph Theory</p>
-<p>🎯 Motivation
-Calculating the equivalent resistance in an electrical circuit is a fundamental task in electrical engineering and physics. While traditional methods rely on manually applying series and parallel rules, graph theory provides a more scalable solution for complex resistor networks.</p>
-<p>By modeling circuits as graphs — where nodes represent junctions and edges represent resistors — we can automate the reduction process.</p>
-<p>🧠 Algorithm Overview</p>
-<p>🔹 Series Connection</p>
+<h1 id="equivalent-resistance-using-graph-theory">📘 Equivalent Resistance Using Graph Theory</h1>
+<h2 id="motivation">🎯 Motivation</h2>
+<p>Calculating the equivalent resistance in an electrical circuit is a fundamental task in electrical engineering and physics. While traditional methods rely on manually applying series and parallel rules, <strong>graph theory</strong> provides a more scalable solution for complex resistor networks.</p>
+<p>By modeling circuits as <strong>graphs</strong> — where <strong>nodes</strong> represent junctions and <strong>edges</strong> represent resistors — we can automate the reduction process.</p>
+<hr/>
+<h2 id="algorithm-overview">🧠 Algorithm Overview</h2>
+<h3 id="series-connection">🔹 Series Connection</h3>
 <p>If resistors are connected end-to-end:</p>
-<p>Nodes:
-B+, N1, B-</p>
-<p>Resistors:</p>
-<p>Node1   Node2   Value (Ω)
-B+  N1  100
-N1  B-  200</p>
-<p>The total equivalent resistance will be:</p>
-<p>𝑅
-eq
-=
-100
-+
-200
-=
-300
-  
-Ω
-R 
-eq
-​
- =100+200=300Ω
-(since resistors in series sum up)</p>
+<p><strong>Nodes:</strong></p>
+<p>B+ — N1 — B-</p>
+<p><strong>Resistors:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Node 1</th>
+<th>Node 2</th>
+<th>Value (Ω)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B+</td>
+<td>N1</td>
+<td>100</td>
+</tr>
+<tr>
+<td>N1</td>
+<td>B-</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Equivalent Resistance Calculation:</strong></p>
+<p>R_eq = 100 + 200 = 300 Ω</p>
+<blockquote>
+<p>(Since resistors in series simply sum up)</p>
+</blockquote>
 <p>phyton</p>
 <pre><code>def _combine_series_threaded(self, G, step_count):
 
