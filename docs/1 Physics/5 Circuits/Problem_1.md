@@ -274,5 +274,5 @@ import networkx as nx
 ![2](2@.png)
 ![3](03.png)
 
-[⬇️ Download Circuit Solver Notebook](https://github.com/gorselguler/solutions_repo/tree/main/docs/1%20Physics/5%20Circuits/button.ipynb)
+[⬇️ Download Circuit Solver ](https://drive.google.com/drive/folders/1HImjslU9U_RRR_lJOYFRNqLK1Y6UqLa2)
 
