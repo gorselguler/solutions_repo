@@ -310,4 +310,8 @@ Users can build circuits by adding **nodes** and **resistors**, and the program 
 ### ▶️ Download the Colab Notebook  
 Use the interactive notebook version to run and visualize the algorithm directly in Google Colab or locally:
 
-[![Download .ipynb](https://img.shields.io/badge/Download-Notebook-blue?style=for-the-badge&logo=google-colab)](https://github.com/USERNAME/REPONAME/raw/main/CircuitSolver.ipynb)
+<p align="center">
+  <a href="https://drive.google.com/drive/folders/1HImjslU9U_RRR_lJOYFRNqLK1Y6UqLa2" target="_blank">
+    <img src="https://img.shields.io/badge/Download-Circuit%20Solver-blue?style=for-the-badge&logo=google-drive" alt="Download Circuit Solver">
+  </a>
+</p>
