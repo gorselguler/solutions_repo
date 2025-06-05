@@ -187,9 +187,11 @@ B+, N1, B-</p>
 <p>Node2: B-</p>
 <p>Value: 200</p>
 <p>The total equivalent resistance will be 300 Ω (since 100 + 200 = 300 in series).</p>
-<p>phyton
-def _combine_series_threaded(self, G, step_count):</p>
-<pre><code>changed = False
+<p>phyton</p>
+<pre><code>def _combine_series_threaded(self, G, step_count):
+
+
+changed = False
 nodes_to_remove = []
 edges_to_add = []
 r1_val = 0
@@ -239,8 +241,8 @@ B+ - B-: 100 Ω
 B+ - B-: 200 Ω</p>
 <p>1 / Req = 1/100 + 1/200 → Req = 66.67 Ω</p>
 <p>python</p>
-<p>def _combine_parallel_threaded(self, G, step_count):</p>
-<pre><code>changed = False
+<pre><code>def _combine_parallel_threaded(self, G, step_count):
+changed = False
 edges_to_remove = []
 edges_to_add = []
 
@@ -274,7 +276,8 @@ if changed:
         self._draw_and_save_graph(G, f"Step {step_count}: Parallel {u}-{v} = {R_parallel:.2f}Ω", step_count)
 return step_count, changed
 </code></pre>
-<p><img alt="paralelstep1" src="" title="C:\Users\Gorsel\OneDrive\Masaüstü\paralel_step_01.png"/></p>
+<p><img alt="paralelstep1" src="../paralel_step_01.png"/>
+<img alt="paralelstep1" src="../paralel_step_02.png"/></p>
 <p>Example 3: Nested
 lua</p>
 <p>A --2Ω--+--B--4Ω--+--C
